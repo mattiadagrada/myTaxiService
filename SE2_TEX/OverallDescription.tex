@@ -60,30 +60,32 @@
 			\item There is not an administrator or a privileged user. We think that is not
 			necessary a hierarchy of users to keep the system safe;
 			\item There is not any dependence between users;
+			\item Every registered user can request a single taxi;
 			\item Guest user is identified through his public IP address;
+			\item Guest users will be asked to provide basic personal informations during the
+			request's submission
 			\item The position of the user can always be determined, via browser or GPS
 			(see HTML5 Geolocation), and has a good approximation. Otherwise the service will not
 			be accessible;
 			\item A taxi driver can access the service only if he is signed up. During
 			registration he will have to provide, in addition to the usual personal information,
 			the identification number of his taxi;
-			\item Through the ID number of a taxi it is possible to retrieve some informations (like
-			the location) of the taxi itself;
+			\item Through the ID number of a taxi is possible to retrieve some informations (like
+			its location);
 			\item A taxi driver can give and remove availability in every moment;
 			\item If a taxi driver does not accept a call within 1 minute after the notification,
 			a rejection will be automatically recorded in the database and the request will be
 			forwarded to another taxi;
-			\item After 3 consecutive rejections (voluntary or involuntary) the taxi availability
-			will be revoked automatically;
+			\item After 3 rejections (voluntary or involuntary) the taxi availability will be 
+			revoked automatically;
 			\item When a user (registered or guest) requests a taxi, his position is taken automatically.
 			If he does not agree, his request will not be forwarded.
 			\item After a request, a user (registered or guest) can not make other requests in the next 30 minutes;
-			\item A user must be signed up to make a reservation;
+			\item A user must be signed up to make a reservation
 			\item Reservations must be taken at least 2 hours in advance from the time of taxi's request,
-			otherwise the reservation will not be accepted;
+			otherwise the reservation will not be accepted
 			\item A user that registered a reservation for a taxi can not make requests within 30 minutes
-			before the reservation;
-			\item A reservation can be cancelled until 10 minutes before the request time
+			before the reservation
 		\end{itemize}
 	\subsection{Future possible implementation}
 		The taxi sharing option: this means that the user is ready to 
