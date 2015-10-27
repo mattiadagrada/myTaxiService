@@ -1,101 +1,22 @@
-\documentclass{article}
+\documentclass[11pt,a4paper,titlepage]{article}
+\usepackage[pdftex]{graphicx}
 \begin{document}
-\section{Overall Description}
-	\subsection{Product perspective}
-		We want to release both a web and a mobile application, avoiding deep
-		integrations with other existing systems in order to keep an high level
-		of compatibility, especially the mobile application, that we want to
-		release for all major mobile operative systems. The applications will not
-		have any internal interface for administration but they will be only user based.
-		The application will provide APIs for a faster, safer and better integrated 
-		implementation of new features, based on the basic functionalities
-		offered by the system.
-	\subsection{User characteristics}
-		We expect to have two different types of user with distinct experiences. 
-		\begin{description}
-			\item[Passenger] who needs to call a taxi for a ride (that is occasional, threated
-			as a guest, or habitual, who can register himself to speed up request submissions).
-			This user must have access to the Internet and be able to use
-			a web browser or have installed our mobile application on his smartphone;
-			\item[Taxi Driver] who wants to offer its service through our system.
-			This user must have access to Internet and have	installed our mobile
-			application on his smartphone.
-		\end{description}
-	\subsection{Constraints}
-		\subsubsection{Regulatory policies}
-			Personal information (locations included) obtained from the	user will be stored
-			in our databases if strictly necessary, to provide the best possible experience
-			with our service. No information will be disclosed to any other company or
-			used for any other purpose.
-		\subsubsection{Hardware limitations}
-			MyTaxiService's web application will be available on every device with an Internet
-			connection and a browser installed. The mobile application (necessary for taxi
-			drivers) will have the following requirements:
-			\begin{itemize}
-				\item 256MB total RAM
-				\item 50MB of free space on Disk
-				\item Internet Connection
-				\item Operative System:
-					\begin{itemize}
-						\item Android 2.3 ''Gingerbread'' or later
-						\item Windows Mobile 7.0 or later
-						\item iOS 6.0 or later
-					\end{itemize} 
-			\end{itemize}
-			It is also recommended to activate the GPS for a optimal localization.
-		\subsubsection{Interfaces to other applications}
-			MyTaxiService will provide an API library to allow external developers to
-			integrate their applications with our system.
-		\subsubsection{Parallel operation}
-			The system must support parallel operations from different users. Information
-			integrity is fundamental to provide a first-rate service, so the mechanism of
-			supply and demand will have to be highly affordable.
-		\subsubsection{Documents related}
-			\begin{itemize}
-				\item RASD (Requirements and Analysis Specification Document)
-				\item DD (Design Document)
-				\item User's Manual
-				\item Testing report
-			\end{itemize}
-	\subsection{Assumptions and Dependencies}
-		\begin{itemize}
-			\item There is not an administrator or a privileged user. We think that is not
-			necessary a hierarchy of users to keep the system safe;
-			\item There is not any dependence between users;
-			\item Every registered user can request a single taxi;
-			\item Guest user is identified through his public IP address;
-			\item Guest users will be asked to provide basic personal informations during the
-			request's submission
-			\item The position of the user can always be determined, via browser or GPS
-			(see HTML5 Geolocation), and has a good approximation. Otherwise the service will not
-			be accessible;
-			\item A taxi driver can access the service only if he is signed up. During
-			registration he will have to provide, in addition to the usual personal information,
-			the identification number of his taxi;
-			\item Through the ID number of a taxi is possible to retrieve some informations (like
-			its location);
-			\item A taxi driver can give and remove availability in every moment;
-			\item If a taxi driver does not accept a call within 1 minute after the notification,
-			a rejection will be automatically recorded in the database and the request will be
-			forwarded to another taxi;
-			\item After 3 rejections (voluntary or involuntary) the taxi availability will be 
-			revoked automatically;
-			\item When a user (registered or guest) requests a taxi, his position is taken automatically.
-			If he does not agree, his request will not be forwarded.
-			\item After a request, a user (registered or guest) can not make other requests in the next 30 minutes;
-			\item A user must be signed up to make a reservation
-			\item Reservations must be taken at least 2 hours in advance from the time of taxi's request,
-			otherwise the reservation will not be accepted
-			\item A user that registered a reservation for a taxi can not make requests within 30 minutes
-			before the reservation
-		\end{itemize}
-	\subsection{Future possible implementation}
-		The taxi sharing option: this means that the user is ready to 
-		share a taxi with others if possible, thus sharing the cost of the ride. In this case 
-		the user is required to specify the destination of all rides which he/she wants to 
-		share with others. If others are willing to start a shared ride from the same zone 
-		going in the same direction, then the system arranges the route for the taxi 
-		driver, defines the fee for all persons sharing the taxi and informs the passengers 
-		and the taxi driver.
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{../SE2_IMAGES/Logo_Politecnico_Milano}
+\end{figure}
+\title{Politecnico di Milano\\A.Y. 2015/2016\\\textbf{My Taxi Service}\\Requirement Analysis and Specification Document\\}
+\author{Bernardis Cesare matr. \and Dagrada Mattia matr.852975}
+\date{November 6, 2015}
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\include{Introduction}
+\include{OverallDescription}
+
 \end{document}
-Dubbi su Regulatory e Hardware limitations
