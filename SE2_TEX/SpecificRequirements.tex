@@ -1,0 +1,79 @@
+\section{Specific Requirements}
+	\subsection{External Interface Requirements}
+		\subsubsection{API Interfaces}
+			For taxi waiting time and other minor features we decided to use Google Maps API.
+			It is a very powerful library that perfectly fits our needs.
+			When a taxi accepts a request, the system retrieves its position and, through
+			those APIs, is able to process either the hypothetical route that the taxi will
+			follow to reach the passenger's position and, consequently, the arrival time.
+			The system will, then, forward those information to the passenger.
+		\subsubsection{Hardware Interfaces}
+			Our project includes a web and a mobile application, so it does not require
+			any external hardware interface.
+		\subsubsection{Software Interfaces}
+			\begin{itemize}
+				\item Database Management System (DBMS):
+				\begin{itemize}
+					\item Name: MySQL.
+					\item Version: 5.6.21
+					\item Source: http://www.mysql.it/
+				\end{itemize}
+				\item Java Virtual Machine (JVM).
+				\begin{itemize}
+					\item Name: JEE
+					\item Version: 7
+					\item Source: http://www.oracle.com/technetwork/java/javaee/tech/index.html
+				\end{itemize}
+				\item Application server:
+				\begin{itemize}
+					\item Name: Glassfish.
+					\item Version: 4.1.
+					\item Source: https://glassfish.java.net/
+				\end{itemize}
+				\item Operating System (OS).
+				\begin{itemize}
+					\item Application must be able to run on any SO which supports JVM and DBMS specified before.
+				\end{itemize}
+			\end{itemize}
+		\subsubsection{Communication Interfaces}
+			\begin{center}
+				\begin{tabular}{ | l | l | l | p{5cm} |}
+					\hline
+					Protocol & Application & Port 	\\ \hline
+					TCP & HTTPS & 443				\\ \hline
+					TCP & HTTP  & 80				\\ \hline
+					TCP & DBMS  & 3306 (default)	\\ \hline
+				\end{tabular}
+			\end{center}
+	\subsection{Functional Requirements}
+		\subsubsection{Permit a registered passenger to cancel a reservation}
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item User must be already registered and logged in the application.
+				\item User can not delete a reservation within 10 minutes before the time of the request.
+				\item User must confirm the deleting process.
+				\item Deleting process is not reversible.
+			\end{enumerate}
+		\subsubsection{Permit a taxi driver to give the system his availability}
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item User must use the mobile application
+				\item User must be already registered and logged in the application.
+				\item User must be a taxi driver
+				\item The taxi driver must be unavailable
+			\end{enumerate}
+		\subsubsection{Permit a taxi driver to revoke his availability}
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item User must use the mobile application
+				\item User must be already registered and logged in the application.
+				\item User must be a taxi driver
+				\item The taxi driver must be available
+			\end{enumerate}
+		\subsubsection{Permit a taxi driver to accept or refuse a ride request}
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item User must use the mobile application
+				\item User must be already registered and logged in the application.
+				\item User must be a taxi driver
+				\item The taxi driver must be available
+				\item the taxi driver must have received a notification for that ride request
+			\end{enumerate}
+	\subsection{Scenarios}
+		\subsubsection{Scenario 1}
