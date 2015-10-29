@@ -46,34 +46,72 @@
 				\end{tabular}
 			\end{center}
 	\subsection{Functional Requirements}
+		\subsubsection{Permit a guest to register to the service}
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item Guest can access registration form.
+				\item Guest must not be already registered to perform registration process.
+				\item Guest must choose a unique username (never used by other users)
+				\item Guest can not sign up twice but only once for session.
+				\item During registration must provide all necessary information
+			\end{enumerate}
+		\subsubsection{Permit a guest to request a taxi}
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item Guest must provide basic personal information
+				\item Guest must agree to provide his position
+			\end{enumerate}
+		\subsubsection{Permit a guest to sign in}
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item User must be already registered to sign in.
+				\item User must provide login information to complete the operation.
+				\item The couple username and password inserted during login process must be correct
+					(the same couple inserted during registration).
+				\item Wrong credentials will not grant the access.
+				\item After the login operation, the user will be treated as a registered passenger.
+				\item After the login operation, the registration form will not be available for the current session.
+			\end{enumerate}
+		\subsubsection{Permit a registered passenger to require a taxi}
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item User must be already registered and logged in the application.
+				\item User must agree to provide his position.
+				\item No additional information is required.
+			\end{enumerate}
+		\subsubsection{Permit a registered passenger to make a reservation}
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item User must be already registered and logged in the application.
+				\item User must make a reservation at least 2 hours before the request time.
+				\item User must provide time, origin and destination of the ride at the moment of the reservation.
+				\item User must confirm the reservation process.
+				\item The reservation can be deleted by the user himself.
+			\end{enumerate}
 		\subsubsection{Permit a registered passenger to cancel a reservation}
 			\begin{enumerate}[label=\bfseries R\arabic*:]
 				\item User must be already registered and logged in the application.
+				\item User can delete only a reservation made by himself.
 				\item User can not delete a reservation within 10 minutes before the time of the request.
 				\item User must confirm the deleting process.
 				\item Deleting process is not reversible.
 			\end{enumerate}
 		\subsubsection{Permit a taxi driver to give the system his availability}
 			\begin{enumerate}[label=\bfseries R\arabic*:]
-				\item User must use the mobile application
+				\item User must use the mobile application.
 				\item User must be already registered and logged in the application.
-				\item User must be a taxi driver
-				\item The taxi driver must be unavailable
+				\item User must be a taxi driver.
+				\item The taxi driver must be unavailable.
 			\end{enumerate}
 		\subsubsection{Permit a taxi driver to revoke his availability}
 			\begin{enumerate}[label=\bfseries R\arabic*:]
-				\item User must use the mobile application
+				\item User must use the mobile application.
 				\item User must be already registered and logged in the application.
-				\item User must be a taxi driver
-				\item The taxi driver must be available
+				\item User must be a taxi driver.
+				\item The taxi driver must be available.
 			\end{enumerate}
 		\subsubsection{Permit a taxi driver to accept or refuse a ride request}
 			\begin{enumerate}[label=\bfseries R\arabic*:]
-				\item User must use the mobile application
+				\item User must use the mobile application.
 				\item User must be already registered and logged in the application.
-				\item User must be a taxi driver
-				\item The taxi driver must be available
-				\item the taxi driver must have received a notification for that ride request
+				\item User must be a taxi driver.
+				\item The taxi driver must be available.
+				\item the taxi driver must have received a notification for that ride request.
 			\end{enumerate}
 	\subsection{Scenarios}
 		\subsubsection{Occasional user}
