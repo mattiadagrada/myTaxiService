@@ -84,35 +84,35 @@
 				\item The reservation can be deleted by the user himself.
 			\end{enumerate}
 		\subsubsection{Permit a registered passenger to cancel a reservation}
-			\begin{enumerate}[label=\bfseries R\arabic*:]
-				\item User must be already registered and logged in the application.
-				\item User can delete only a reservation made by himself.
-				\item User can not delete a reservation within 10 minutes before the time of the request.
-				\item User must confirm the deleting process.
-				\item Deleting process is not reversible.
-			\end{enumerate}
+			The system shall check that the passenger is already registered and signed in with
+			the correct	credentials.
+			The system shall check that the request the passenger is deleting, exists and belongs
+			to him.
+			The system shall check that it's not after 10 minutes before the reservation request time.
 		\subsubsection{Permit a taxi driver to give the system his availability}
-			\begin{enumerate}[label=\bfseries R\arabic*:]
-				\item User must use the mobile application.
-				\item User must be already registered and logged in the application.
-				\item User must be a taxi driver.
-				\item The taxi driver must be unavailable.
-			\end{enumerate}
+			The system shall check that the taxi driver is already registered and signed in with
+			the correct	credentials.
+			The system shall check that the taxi driver is actually unavailable and then
+			let the taxi driver set his status as unavailable through the mobile application.
 		\subsubsection{Permit a taxi driver to revoke his availability}
-			\begin{enumerate}[label=\bfseries R\arabic*:]
-				\item User must use the mobile application.
-				\item User must be already registered and logged in the application.
-				\item User must be a taxi driver.
-				\item The taxi driver must be available.
-			\end{enumerate}
+			The system shall check that the taxi driver is already registered and signed in with
+			the correct	credentials.
+			The system shall check that the taxi driver is actually available and then
+			let the taxi driver set his status as unavailable through the mobile application.
+			The system shall revoke it automatically if it registers three consecutive request
+			rejections.
 		\subsubsection{Permit a taxi driver to accept or refuse a ride request}
-			\begin{enumerate}[label=\bfseries R\arabic*:]
-				\item User must use the mobile application.
-				\item User must be already registered and logged in the application.
-				\item User must be a taxi driver.
-				\item The taxi driver must be available.
-				\item the taxi driver must have received a notification for that ride request.
-			\end{enumerate}
+			The system shall check that the taxi driver is already registered and signed in with
+			the correct	credentials.
+			When the system receives a taxi request, it shall remove the first taxi driver
+			of that area from the relative queue and notify him, through the mobile application,
+			that someone is requesting his taxi.
+			When the taxi driver receives the notification he has the chance do accept or decline
+			the request. If he accepts, the system shall register the answer and inform the passenger
+			that this taxi is reaching his position. After 1 minute or if the taxi driver declines,
+			the system shall register a reject.
+			If this taxi driver is at the third rejection, the system shall set	his status as unavailable,
+			notifying him, otherwise it shall put him at the end of his area queue.
 	\subsection{Scenarios}
 		\subsubsection{Occasional user}
 			Mario, an important businessman, has just arrived by train in our city for the first time.
@@ -166,7 +166,7 @@
 		\begin{figure}[h!]
 			\centering
 			\graphicspath{ {../SE2_IMAGES/} }
-			\includegraphics[width=\linewidth]{UseCase.jpg}
+			\includegraphics[height=0.9\textheight]{UseCase.png}
 			\caption{Use Case Diagram for MyTaxiService}
 		\end{figure}
 	\newpage
