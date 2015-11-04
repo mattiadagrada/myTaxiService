@@ -1,5 +1,81 @@
 \section{Specific Requirements}
 	\subsection{External Interface Requirements}
+		\subsubsection{User Interfaces}
+		\begin{description}
+			\item{\textbf{Home page}}
+			\begin{figure}[!h]
+				\centering					
+				\includegraphics[scale=0.5]{../SE2_MOCKUPS/MobileAppHomePage.png}
+				\caption{Home Page - Mobile Application}	
+			\end{figure}
+		\end{description}
+		
+		
+		\newpage
+		\paragraph{Home Page - Web Application}
+		\begin{figure}[!h]
+			\begin{center}					
+				\includegraphics[scale=0.45]{../SE2_MOCKUPS/WebAppHomePage.png}
+				\caption{Home Page - Web Application}
+			\end{center}	
+		\end{figure}
+		\newpage
+		\paragraph{Registration Form - Mobile Application}
+		\begin{figure}[!h]
+			\begin{center}
+				\includegraphics[scale=0.5]{../SE2_MOCKUPS/MobileAppRegistrationForm.png}
+				\caption{Registration Form - Mobile Application}	
+			\end{center}
+		\end{figure}
+		\newpage
+		\paragraph{Registration Form - Web Application}
+		\begin{figure}[!h]
+			\begin{center}
+				\includegraphics[scale=0.45]{../SE2_MOCKUPS/WebAppRegistrationForm.png}
+				\caption{Registration Form -Web Application}	
+			\end{center}
+		\end{figure}
+		\newpage
+		\paragraph{Passenger Area - Mobile Application}
+		\begin{figure}[!h]
+			\begin{center}
+				\includegraphics[scale=0.5]{../SE2_MOCKUPS/MobileAppPassengerArea.png}
+				\caption{Passenger Area - Mobile Application}
+			\end{center}	
+		\end{figure}
+		\newpage
+		\paragraph{Passenger Area - Web Application}
+		\begin{figure}[!h]
+			\begin{center}
+				\includegraphics[scale=0.45]{../SE2_MOCKUPS/WebAppPassengerArea.png}
+				\caption{Passenger Area - Web Application}
+			\end{center}	
+		\end{figure}
+		\newpage
+		\paragraph{Request Confirmation - Mobile Application}
+		\begin{figure}[!h]
+			\begin{center}
+				\includegraphics[scale=0.5]{../SE2_MOCKUPS/MobileAppRequestConfirmation.png}
+				\caption{Request Confirmation - Mobile Application}
+			\end{center}	
+		\end{figure}
+		\newpage
+		\paragraph{Request Confirmation - Web Application}
+		\begin{figure}[!h]
+			\begin{center}
+				\includegraphics[scale=0.45]{../SE2_MOCKUPS/WebAppRequestConfirmation.png}
+				\caption{Request Confirmation - Web Application}
+			\end{center}	
+		\end{figure}
+		\newpage
+		\paragraph{Taxi Driver Area - Mobile Application}
+		\begin{figure}[!h]
+			\begin{center}
+				\includegraphics[scale=0.5]{../SE2_MOCKUPS/MobileAppTaxiDriverArea.png}
+				\caption{Taxi Driver Area - Mobile Application}	
+			\end{center}
+		\end{figure}
+		\newpage
 		\subsubsection{API Interfaces}
 			For taxi waiting time and other minor features we decided to use Google Maps API.
 			It is a very powerful library that perfectly fits our needs.
@@ -48,32 +124,24 @@
 	\subsection{Functional Requirements}
 		\subsubsection{Permit a guest to register to the service}
 			\begin{enumerate}[label=\bfseries R\arabic*:]
-				\item Guest can access registration form.
-				\item Guest must not be already registered to perform registration process.
-				\item Guest must choose a unique username (never used by other users)
-				\item Guest can not sign up twice but only once for session.
-				\item During registration must provide all necessary information
+				\item The system shows the registration form to the user when he presses the sign up button.
+				\item When the user inserts the username, the email or the phone number, the system verifies that neither of those have already been selected by someone else.
 			\end{enumerate}
 		\subsubsection{Permit a guest to request a taxi}
 			\begin{enumerate}[label=\bfseries R\arabic*:]
-				\item Guest must provide basic personal information
-				\item Guest must agree to provide his position
+				\item The system has to provide a form for storing user basic personal informations.
+				\item The system has to ask the user the consensus in order to use his position.
+				\item The system has to search for an available taxi in the same area of the user after he presses the request button.
 			\end{enumerate}
 		\subsubsection{Permit a guest to sign in}
 			\begin{enumerate}[label=\bfseries R\arabic*:]
-				\item User must be already registered to sign in.
-				\item User must provide login information to complete the operation.
-				\item The couple username and password inserted during login process must be correct
-					(the same couple inserted during registration).
-				\item Wrong credentials will not grant the access.
-				\item After the login operation, the user will be treated as a registered passenger.
-				\item After the login operation, the registration form will not be available for the current session.
+				\item The system has to provide the user a sign in form.
+				\item The system, during sign in, verifies that the username and the password inserted by the user have a match in the DB.
 			\end{enumerate}
-		\subsubsection{Permit a registered passenger to require a taxi}
+		\subsubsection{Permit a registered passenger to request a taxi}
 			\begin{enumerate}[label=\bfseries R\arabic*:]
-				\item User must be already registered and logged in the application.
-				\item User must agree to provide his position.
-				\item No additional information is required.
+				\item The system has to ask the user the consensus in order to use his position.
+				\item The system has to search for an available taxi in the same area of the user after he presses the request button.
 			\end{enumerate}
 		\subsubsection{Permit a registered passenger to make a reservation}
 			\begin{enumerate}[label=\bfseries R\arabic*:]
@@ -84,35 +152,35 @@
 				\item The reservation can be deleted by the user himself.
 			\end{enumerate}
 		\subsubsection{Permit a registered passenger to cancel a reservation}
-			The system shall check that the passenger is already registered and signed in with
-			the correct	credentials.
-			The system shall check that the request the passenger is deleting, exists and belongs
-			to him.
-			The system shall check that it's not after 10 minutes before the reservation request time.
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item User must be already registered and logged in the application.
+				\item User can delete only a reservation made by himself.
+				\item User can not delete a reservation within 10 minutes before the time of the request.
+				\item User must confirm the deleting process.
+				\item Deleting process is not reversible.
+			\end{enumerate}
 		\subsubsection{Permit a taxi driver to give the system his availability}
-			The system shall check that the taxi driver is already registered and signed in with
-			the correct	credentials.
-			The system shall check that the taxi driver is actually unavailable and then
-			let the taxi driver set his status as unavailable through the mobile application.
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item User must use the mobile application.
+				\item User must be already registered and logged in the application.
+				\item User must be a taxi driver.
+				\item The taxi driver must be unavailable.
+			\end{enumerate}
 		\subsubsection{Permit a taxi driver to revoke his availability}
-			The system shall check that the taxi driver is already registered and signed in with
-			the correct	credentials.
-			The system shall check that the taxi driver is actually available and then
-			let the taxi driver set his status as unavailable through the mobile application.
-			The system shall revoke it automatically if it registers three consecutive request
-			rejections.
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item User must use the mobile application.
+				\item User must be already registered and logged in the application.
+				\item User must be a taxi driver.
+				\item The taxi driver must be available.
+			\end{enumerate}
 		\subsubsection{Permit a taxi driver to accept or refuse a ride request}
-			The system shall check that the taxi driver is already registered and signed in with
-			the correct	credentials.
-			When the system receives a taxi request, it shall remove the first taxi driver
-			of that area from the relative queue and notify him, through the mobile application,
-			that someone is requesting his taxi.
-			When the taxi driver receives the notification he has the chance do accept or decline
-			the request. If he accepts, the system shall register the answer and inform the passenger
-			that this taxi is reaching his position. After 1 minute or if the taxi driver declines,
-			the system shall register a reject.
-			If this taxi driver is at the third rejection, the system shall set	his status as unavailable,
-			notifying him, otherwise it shall put him at the end of his area queue.
+			\begin{enumerate}[label=\bfseries R\arabic*:]
+				\item User must use the mobile application.
+				\item User must be already registered and logged in the application.
+				\item User must be a taxi driver.
+				\item The taxi driver must be available.
+				\item the taxi driver must have received a notification for that ride request.
+			\end{enumerate}
 	\subsection{Scenarios}
 		\subsubsection{Occasional user}
 			Mario, an important businessman, has just arrived by train in our city for the first time.
@@ -128,7 +196,7 @@
 			he decides to register and download the mobile application. After a couple of weeks he has to
 			come back. Unfortunately his train had technical issues, and he risks to be late to the
 			meeting again. This time he has our application installed on his mobile device, so with only
-			few taps and no additional information provided requires a taxi. As soon as possible he receives
+			few taps and no additional information provided requests a taxi. As soon as possible he receives
 			a notification with the taxi ID number and the	waiting time before the taxi arrival.
 			In less than no time he will reach the meeting location.
 		\subsubsection{Taxi reservation}
@@ -142,7 +210,7 @@
 			Mario's train has technical issues. Poor Mario, he's so unlucky! He will be very late, 
 			so he does not want to let the taxi wait so long. He opens our application and, 30 minutes
 			before the taxi request, he selects the reservation and deletes it. Once arrived he will
-			require a taxi as usual.
+			request a taxi as usual.
 		\subsubsection{Taxi driver}
 			A taxi driver, Luigi, is having a little break, eating his favourite chocolate bar in his taxi. Suddenly
 			his phone rings: a notification has just arrived. But he's having a break, so he does not answer.
@@ -161,19 +229,71 @@
 			notifications of requests, but Luigi has a huge headache and can not hear the phone ringing. After
 			the third request without answer the system automatically sets the driver as unavailable.
 			Finally Luigi will get its deserved peace.
-	\newpage
-	\subsection{Use Case Diagram}
-		\begin{figure}[h!]
-			\centering
-			\graphicspath{ {../SE2_IMAGES/} }
-			\includegraphics[height=0.9\textheight]{UseCase.png}
-			\caption{Use Case Diagram for MyTaxiService}
-		\end{figure}
-	\newpage
-	\subsection{Class Diagram}
-		\begin{figure}[h!]
-			\centering
-			\graphicspath{ {../SE2_IMAGES/} }
-			\includegraphics[width=\linewidth]{ClassDiagram.png}
-			\caption{Class Diagram for MyTaxiService}
-		\end{figure}
+	\subsection{UML models}
+		\subsubsection{Use Case diagram}
+		\subsubsection{Class diagram}
+		\subsubsection{Guest Registration}
+			\begin{center}
+				\begin{tabular}{ | l | p{8cm} |}
+					\hline
+					Actor &  Guest	\\ \hline
+					Preconditions & The guest has not registered yet to the service		\\ \hline
+					Execution Flow & \begin{enumerate}
+						\item The guest presses the sign up button and access the registration form
+						\item The form requires to insert username, email, password, password confirmation, name, surname, telephone number and to accept terms and conditions
+						\item The system verifies that username, email and telephone number are uniques
+						\item The system confirms the registration
+						\item The system automatically loads the Passenger Area page
+					\end{enumerate}		\\ \hline
+					Postconditions & The guest is now a Registered Passenger and is logged in to the service	\\ \hline
+					Exceptions & Username, password or email are not uniques; the registration fails \\ \hline
+				\end{tabular}
+			\end{center}
+		\subsubsection{Registered Passenger Sign In}
+		\begin{center}
+			\begin{tabular}{ | l | p{8cm} |}
+				\hline
+				Actor &  Registered Passenger	\\ \hline
+				Preconditions & The registered passenger is registered to the service	\\ \hline
+				Execution Flow & \begin{enumerate}
+					\item The registered passenger fills the sign in form, which requires to insert username and password
+					\item The guest presses the sign in
+					\item The system verifies that username and password matches
+					\item The system loads the Passenger Area page
+				\end{enumerate}		\\ \hline
+				Postconditions & The registered passenger is logged in to the service	\\ \hline
+				Exceptions & Username not existent or username-password mismatch; the sign in fails \\ \hline
+			\end{tabular}
+		\end{center}
+		\subsubsection{Guest Taxi Request}
+		\begin{center}
+			\begin{tabular}{ | l | p{8cm} |}
+				\hline
+				Actor &  Guest	\\ \hline
+				Preconditions & Nothing		\\ \hline
+				Execution Flow & \begin{enumerate}
+					\item The guest fills the request form, which requires to insert full name and telephone number and to give position consensus
+					\item The guest presses the request button
+					\item The system searches and finds an available taxi
+					\item The system loads the confirmation request page
+				\end{enumerate}		\\ \hline
+				Postconditions & The Guest has the code of the taxi he requested	\\ \hline
+				Exceptions & GPS position not available; the request fails \\ \hline
+			\end{tabular}
+		\end{center}
+		\subsubsection{Registered Passenger Taxi Request}
+		\begin{center}
+			\begin{tabular}{ | l | p{8cm} |}
+				\hline
+				Actor &  Registered Passenger	\\ \hline
+				Preconditions & The registered passenger is registered to the service	\\ \hline
+				Execution Flow & \begin{enumerate}
+					\item The registered passenger signs in to the service (as written above) and access the Passenger Area page
+					\item The registered passenger gives position consensus and presses the request button
+					\item The system searches and finds an available taxi
+					\item The system loads the confirmation request page
+				\end{enumerate}		\\ \hline
+				Postconditions & The registered passenger has the code of the taxi he requested	\\ \hline
+				Exceptions & GPS position not available; the request fails \\ \hline
+			\end{tabular}
+		\end{center}
