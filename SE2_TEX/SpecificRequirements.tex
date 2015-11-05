@@ -2,11 +2,12 @@
 	\subsection{External Interface Requirements}
 		\subsubsection{User Interfaces}
 		\begin{description}
-			\item{\textbf{Home page}}
+			\paragraph{Home Page - Mobile Application}
 			\begin{figure}[!h]
-				\centering					
+				\begin{center}					
 				\includegraphics[scale=0.5]{../SE2_MOCKUPS/MobileAppHomePage.png}
-				\caption{Home Page - Mobile Application}	
+				\caption{Home Page - Mobile Application}
+				\end{center}	
 			\end{figure}
 		\end{description}
 		
@@ -203,27 +204,27 @@
 		\subsubsection{Occasional user}
 			Mario, an important businessman, has just arrived by train in our city for the first time.
 			His train had technical issues and now he is a bit late for the meeting on 
-			the opposite side of our town, so he does not want to take public transports.
+			the opposite side of the town, so he does not want to take public transports.
 			The best solution is to call a taxi.
-			He opens the browser on his smartphone and, inserting name and surname, sends a taxi request
+			He opens the browser on his smartphone and, inserting name, surname and his telephone number, sends a taxi request
 			to our system. As soon as possible he receives a notification with the taxi ID number and the
-			waiting time before the taxi arrival. In less than no time he will reach the meeting location.
+			waiting time before the taxi arrival. Mario manages to get there sooner than expected thanks to our service.
 		\subsubsection{Habitual user}
 			The meeting of Mario went very well: he started an important collaboration with a local
 			company. He will have to come back often in our town. He found our service very useful, so
-			he decides to register and download the mobile application. After a couple of weeks he has to
+			he decides to download our mobile application and sign up to the service. After a couple of weeks he has to
 			come back. Unfortunately his train had technical issues, and he risks to be late to the
 			meeting again. This time he has our application installed on his mobile device, so with only
-			few taps and no additional information provided requests a taxi. As soon as possible he receives
+			few taps and no additional information needed, requests a taxi. As soon as possible he receives
 			a notification with the taxi ID number and the	waiting time before the taxi arrival.
-			In less than no time he will reach the meeting location.
+			Once again our service saves his day.
 		\subsubsection{Taxi reservation}
 			After another couple of weeks, Mario has to come back in our town again. He thinks that he 
 			will never be so unlucky to find a defective train for the third consecutive time,
-			so he decides to make a reservation before leaving,	in order to find a taxi waiting for him
+			so he decides to make a reservation before leaving his place,in order to find a taxi waiting for him
 			at the train station at his arrival. Using the mobile application, he fills in all the
 			necessary fields, indicating hour and place of the request.
-			Now he can airily taste	his journey.
+			Now he can enjoy his journey carefree.
 		\subsubsection{Deleting a taxi reservation}
 			Mario's train has technical issues. Poor Mario, he's so unlucky! He will be very late, 
 			so he does not want to let the taxi wait so long. He opens our application and, 30 minutes
@@ -232,20 +233,20 @@
 		\subsubsection{Taxi driver}
 			A taxi driver, Luigi, is having a little break, eating his favourite chocolate bar in his taxi. Suddenly
 			his phone rings: a notification has just arrived. But he's having a break, so he does not answer.
-			After 1 minute, the system automatically records a negative answer from the taxi driver.
+			After 1 minute, the system automatically records a negative answer.
 			Luigi slowly ends his bar and starts answering some messages on his smartphone. Suddenly his phone
-			rings. He sees the notification, but he's very busy, so he declines the request. Luigi greets his
+			rings. He sees another notification, but he's very busy, so he declines the request. Luigi greets his
 			friend on the chat and goes back to work. After a few minutes his phone rings again. A man called
 			Mario is requesting a taxi in his area, right next to the train station. He accepts the request and
 			starts driving towards the location of the customer.
 		\subsubsection{Taxi availability}
 			After a hard morning, Luigi decides that it is the right time to have lunch. He opens our mobile
-			application and sets his status as unavailable: he does not want to be disturbed during such an
-			important moment. After a hearty lunch, he goes back to work, so he picks up his phone, opens our
-			application and sets his status as available. He works hard for the whole afternoon and, after the
+			application and sets his status to unavailable: he does not want to be disturbed during such an
+			important moment. After lunch, he goes back to work, so he picks up his phone, opens our
+			application and sets his status to available. He works hard for the whole afternoon and, after the
 			last passenger, he's so tired that he forgets the status on available. The system sends him 1, 2, 3
 			notifications of requests, but Luigi has a huge headache and can not hear the phone ringing. After
-			the third request without answer the system automatically sets the driver as unavailable.
+			the third request without answer the system automatically sets his status to unavailable.
 			Finally Luigi will get its deserved peace.
 	\newpage
 	\subsection{UML models}
@@ -264,7 +265,7 @@
 				\includegraphics[width=\linewidth]{ClassDiagram.png}
 				\caption{Class Diagram for MyTaxiService}
 			\end{figure}
-		\subsubsection{Guest Registration}
+		\paragraph{Guest Registration}
 			\begin{center}
 				\begin{tabular}{ | l | p{8cm} |}
 					\hline
@@ -281,7 +282,13 @@
 					Exceptions & Username, password or email are not uniques; the registration fails \\ \hline
 				\end{tabular}
 			\end{center}
-		\subsubsection{Registered Passenger Sign In}
+			\begin{figure}[!h]
+				\begin{center}			
+					\includegraphics[scale=0.45]{../SE2_SD/GuestRegistration}
+					\caption{Sequence Diagram - Guest Registration}	
+				\end{center}
+			\end{figure}
+		\paragraph{Registered Passenger Sign In}
 			\begin{center}
 				\begin{tabular}{ | l | p{8cm} |}
 					\hline
@@ -297,7 +304,13 @@
 					Exceptions & Username not existent or username-password mismatch; the sign in fails \\ \hline
 				\end{tabular}
 			\end{center}
-		\subsubsection{Guest Taxi Request}
+			\begin{figure}[!h]
+				\begin{center}			
+				\includegraphics[scale=0.5]{../SE2_SD/RegisteredPassengerSignIn}
+				\caption{Sequence Diagram - Registered Passenger Sign In}	
+				\end{center}
+			\end{figure}
+		\paragraph{Guest Taxi Request}
 			\begin{center}
 				\begin{tabular}{ | l | p{8cm} |}
 					\hline
@@ -313,7 +326,13 @@
 					Exceptions & GPS position not available; the request fails \\ \hline
 				\end{tabular}
 			\end{center}
-		\subsubsection{Registered Passenger Taxi Request}
+			\begin{figure}[!h]
+				\begin{center}			
+					\includegraphics[scale=0.4]{../SE2_SD/GuestTaxiRequest}
+					\caption{Sequence Diagram - Guest Taxi Request}	
+				\end{center}
+			\end{figure}
+		\paragraph{Registered Passenger Taxi Request}
 			\begin{center}
 				\begin{tabular}{ | l | p{8cm} |}
 					\hline
@@ -329,7 +348,13 @@
 					Exceptions & GPS position not available; the request fails \\ \hline
 				\end{tabular}
 			\end{center}
-		\subsubsection{Cancel a reservation}
+			\begin{figure}[!h]
+				\begin{center}			
+					\includegraphics[scale=0.4]{../SE2_SD/RegisteredPassengerTaxiRequest}
+					\caption{Sequence Diagram - Registered Passenger Taxi Request}	
+				\end{center}
+			\end{figure}
+		\paragraph{Cancel a reservation}
 			\begin{center}
 				\begin{tabular}{ | l | p{8cm} |}
 					\hline Actors & Registered passenger
@@ -354,7 +379,7 @@
 					\\ \hline
 				\end{tabular}
 			\end{center}
-		\subsubsection{Give availability}
+		\paragraph{Give availability}
 			\begin{center}
 				\begin{tabular}{ | l | p{8cm} |}
 					\hline Actors & Taxi driver
@@ -379,7 +404,7 @@
 					\\ \hline
 				\end{tabular}
 			\end{center}
-		\subsubsection{Revoke availability}
+		\paragraph{Revoke availability}
 			\begin{center}
 				\begin{tabular}{ | l | p{8cm} |}
 					\hline Actors & Taxi driver
@@ -404,7 +429,7 @@
 					\\ \hline
 				\end{tabular}
 			\end{center}
-		\subsubsection{Accept a ride request}
+		\paragraph{Accept a ride request}
 			\begin{center}
 				\begin{tabular}{ | l | p{8cm} |}
 					\hline Actors & Taxi driver
@@ -430,7 +455,7 @@
 					\\ \hline
 				\end{tabular}
 			\end{center}
-		\subsubsection{Refuse a ride request}
+		\paragraph{Refuse a ride request}
 			\begin{center}
 				\begin{tabular}{ | l | p{8cm} |}
 					\hline Actors & Taxi driver

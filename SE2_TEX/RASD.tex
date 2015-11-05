@@ -1,5 +1,6 @@
 \documentclass[11pt,a4paper,titlepage]{article}
 \usepackage[pdftex]{graphicx}
+\usepackage{titlesec}
 \usepackage{float}
 \usepackage{enumitem}
 \usepackage{hyperref}
@@ -10,6 +11,14 @@
 	linkcolor=black,
 	urlcolor=black
 }
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
 \begin{document}
 \begin{figure}
 	\centering
