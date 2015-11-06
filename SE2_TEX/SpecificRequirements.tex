@@ -184,6 +184,7 @@ any external hardware interface.
 	\item When the taxi driver receives the notification, he accepts
 	\item The system shall register the answer and inform the passenger
 	that this taxi is reaching his position.
+	\item The system shall set the taxi driver status as unavailable
 \end{enumerate}
 \subsubsection{Permit a taxi driver to refuse a ride request}
 \begin{enumerate}[label=\bfseries R\arabic*:]
@@ -236,7 +237,8 @@ Luigi slowly ends his bar and starts answering some messages on his smartphone. 
 rings. He sees the notification, but he's very busy, so he declines the request. Luigi greets his
 friend on the chat and goes back to work. After a few minutes his phone rings again. A man called
 Mario is requesting a taxi in his area, right next to the train station. He accepts the request and
-starts driving towards the location of the customer.
+starts driving towards the location of the customer. After the ride, Luigi sets his status back to
+available and waits for another request.
 \subsubsection{Taxi availability}
 After a hard morning, Luigi decides that it is the right time to have lunch. He opens our mobile
 application and sets his status as unavailable: he does not want to be disturbed during such an
@@ -505,6 +507,7 @@ Finally Luigi will get its deserved peace.
 			\item The taxi driver presses the Accept button
 			\item The system notifies the user who asked for the taxi sending him
 			information about the taxi and the arrival time
+			\item The system sets the taxi driver as unavailable
 		\end{enumerate}
 		\\ \hline
 		Postconditions & The taxi driver is not enqueued again and the user's request
