@@ -549,3 +549,37 @@ Finally Luigi will get its deserved peace.
 \end{figure}
 \end{landscape}
 \newpage
+\subsection{Non Funcional Requirements}
+Some non functional requirements have been found in order to fulfil
+some qualities and a correct operation flow that the system should provide.
+\subsubsection{User friendliness}
+The user interface has to be simple and intuitive. This will help any kind of user 
+to easily access our service.
+\subsubsection{Portability}
+The client has to be compatible to all the major hardware
+and software platform on the market. While this is not a problem for the web application, 
+for the mobile one refers to the Hardware Limitations section.
+\subsubsection{Performance}
+In order to have a good service, the system has to be reactive
+and able to answer a high number of simultaneous requests.
+Because of this the interaction between the client and the server has
+to be reduced to a minimum, in order to prevent overload.
+\subsubsection{Availability}
+The service should be available to the user the highest possible amount of time.
+We suppose to be able to grant a 4-nines availability, which means a 52 minutes per years.
+\subsubsection{Data integrity and consistency}
+Data have to be always accessible,
+so the system has to provide an access to them in
+normal condition. Data have to be duplicate in order to avoid
+losses in case of system fault. For instance the use of RAID, mirroring
+and backup could present a valid solution.
+\subsubsection{Security}
+To ensure that sensible data
+remain private, the system should offer different security measures.
+The accounts are protected by the couple username-password. 
+Data should be filtered in order to avoid vicious
+or unwanted modification in the data base (e.g. SQL injection). Finally, in order to protect the on-line transmission of data an HTTPS protocol could
+be used. However this last proposal should be delayed to a future
+implementation because the HTTPS protocol needs the purchase of a
+certificate signed by recognized certification authority.
+
