@@ -348,9 +348,9 @@ Finally Luigi will get its deserved peace.
 	\begin{tabular}{ | l | p{8cm} |}
 		\hline
 		Actor &  Registered Passenger	\\ \hline
-		Preconditions & The registered passenger is registered to the service	\\ \hline
+		Preconditions & The registered passenger is registered to the service and is logged in	\\ \hline
 		Execution Flow & \begin{enumerate}
-			\item The registered passenger signs in to the service (as written above) and access the Passenger Area page
+			\item The registered passenger accesses the Passenger Area page
 			\item The registered passenger gives position consensus and presses the request button
 			\item The system searches and finds an available taxi
 			\item The system loads the confirmation request page
@@ -368,6 +368,22 @@ Finally Luigi will get its deserved peace.
 	\end{center}
 \end{figure}
 \end{landscape}
+\newpage
+\paragraph{Make a reservation}
+\begin{center}
+	\begin{tabular}{ | l | p{8cm} |}
+		\hline
+		Actor &  Registered Passenger	\\ \hline
+		Preconditions & The registered passenger is registered to the service and is logged in	\\ \hline
+		Execution Flow & \begin{enumerate}
+			\item The registered passenger accesses the Passenger Area page
+			\item The registered passenger fills the reservation form inserting origin and destination of the ride and the day and time when the ride has to happen
+			\item The system confirms the reservation
+		\end{enumerate}		\\ \hline
+		Postconditions & The registered passenger has a new reservation in his reservations list	\\ \hline
+		Exceptions & The form isn't filled correctly or the time constraints aren't satisfied; the reservation fails \\ \hline
+	\end{tabular}
+\end{center}
 \newpage
 \paragraph{Cancel a reservation}
 \begin{center}
