@@ -254,7 +254,7 @@ Finally Luigi will get its deserved peace.
 \begin{figure}[h!]
 	\centering
 	\graphicspath{ {../SE2_IMAGES/} }
-	\includegraphics[height=0.8\textheight]{UseCase.png}
+	\includegraphics[height=0.8\textheight]{UseCaseFinal}
 	\caption{Use Case Diagram for MyTaxiService}
 \end{figure}
 \newpage
@@ -262,7 +262,7 @@ Finally Luigi will get its deserved peace.
 \begin{figure}[h!]
 	\centering
 	\graphicspath{ {../SE2_IMAGES/} }
-	\includegraphics[width=\linewidth]{ClassDiagram.png}
+	\includegraphics[width=\linewidth]{ClassDiagramFinal}
 	\caption{Class Diagram for MyTaxiService}
 \end{figure}
 \newpage
@@ -371,7 +371,7 @@ Finally Luigi will get its deserved peace.
 \end{figure}
 \end{landscape}
 \newpage
-\paragraph{Make a reservation}
+\paragraph{Registered Passenger Make A Reservation}
 \begin{center}
 	\begin{tabular}{ | l | p{8cm} |}
 		\hline
@@ -387,7 +387,16 @@ Finally Luigi will get its deserved peace.
 	\end{tabular}
 \end{center}
 \newpage
-\paragraph{Cancel a reservation}
+\begin{landscape}
+	\begin{figure}[!h]
+		\begin{center}			
+			\includegraphics[height=\textheight]{../SE2_SD/RegisteredPassengerReservation}
+			\caption{Sequence Diagram - Registered Passenger Make a reservation}	
+		\end{center}
+	\end{figure}
+\end{landscape}
+\newpage
+\paragraph{Registered Passenger Cancel A Reservation}
 \begin{center}
 	\begin{tabular}{ | l | p{8cm} |}
 		\hline Actors & Registered passenger
@@ -417,12 +426,12 @@ Finally Luigi will get its deserved peace.
 \begin{figure}[!h]
 	\begin{center}			
 		\includegraphics[height=\textheight]{../SE2_SD/CancelAReservation}
-		\caption{Sequence Diagram - Registered Passenger Sign In}	
+		\caption{Sequence Diagram - Registered Passenger Cancel a reservation}	
 	\end{center}
 \end{figure}
 \end{landscape}
 \newpage
-\paragraph{Give availability}
+\paragraph{Taxi Driver Give availability}
 \begin{center}
 	\begin{tabular}{ | l | p{8cm} |}
 		\hline Actors & Taxi driver
@@ -452,12 +461,12 @@ Finally Luigi will get its deserved peace.
 \begin{figure}[!h]
 	\begin{center}			
 		\includegraphics[height=\textheight]{../SE2_SD/GiveAvailability}
-		\caption{Sequence Diagram - Registered Passenger Sign In}	
+		\caption{Sequence Diagram - Taxi Driver Give availability}	
 	\end{center}
 \end{figure}
 \end{landscape}
 \newpage
-\paragraph{Revoke availability}
+\paragraph{Taxi Driver Revoke availability}
 \begin{center}
 	\begin{tabular}{ | l | p{8cm} |}
 		\hline Actors & Taxi driver
@@ -487,12 +496,12 @@ Finally Luigi will get its deserved peace.
 \begin{figure}[!h]
 	\begin{center}			
 		\includegraphics[height=\textheight]{../SE2_SD/RevokeAvailability}
-		\caption{Sequence Diagram - Registered Passenger Sign In}	
+		\caption{Sequence Diagram - Taxi Driver Revoke Availability}	
 	\end{center}
 \end{figure}
 \end{landscape}
 \newpage
-\paragraph{Accept a ride request}
+\paragraph{Taxi Driver Accept A Ride Request}
 \begin{center}
 	\begin{tabular}{ | l | p{8cm} |}
 		\hline Actors & Taxi driver
@@ -524,12 +533,12 @@ Finally Luigi will get its deserved peace.
 \begin{figure}[!h]
 	\begin{center}			
 		\includegraphics[height=\textheight]{../SE2_SD/AcceptRideRequest}
-		\caption{Sequence Diagram - Registered Passenger Sign In}	
+		\caption{Sequence Diagram - Taxi Driver Accept A Ride Request}	
 	\end{center}
 \end{figure}
 \end{landscape}
 \newpage
-\paragraph{Refuse a ride request}
+\paragraph{Taxi Driver Refuse A Ride Request}
 \begin{center}
 	\begin{tabular}{ | l | p{8cm} |}
 		\hline Actors & Taxi driver
@@ -563,7 +572,7 @@ Finally Luigi will get its deserved peace.
 \begin{figure}[!h]
 	\begin{center}			
 		\includegraphics[height=\textheight]{../SE2_SD/RefuseRideRequest}
-		\caption{Sequence Diagram - Registered Passenger Sign In}	
+		\caption{Sequence Diagram - Taxi Driver Refuse A Ride Request}	
 	\end{center}
 \end{figure}
 \end{landscape}
