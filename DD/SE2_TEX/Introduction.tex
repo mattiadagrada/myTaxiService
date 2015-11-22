@@ -1,21 +1,17 @@
 \section{Introduction}
 \subsection{Purpose}
-The main goal of this document is to completely describe the system in terms of functional and non-functional requirements, to analyse the real need of the customer modelling the system, to show the constraints and the software limits and simulate the typical use cases that will occur after the development. This document is intended to all developers and programmers who have to implement the requirements, to the system analysts who want to integrate other system with this one, and could also be used as a contractual basis between the customer and the developer.
+The main goal of this document is to describe the system in terms of architectural design choices, going in details about the architectural styles and patterns, and also to show how these are implemented via pseudo-code utilizing meaningful examples.
 \subsection{Scope}
-The aim of this project is to create a brand new taxi application that is used by both the taxi drivers and the passengers to access the taxi service. Passengers can access the service either via mobile or web application. They can request a taxi without having to register to service but they have to insert personal information while registered passengers, once logged in, can directly request a taxi. The system confirms a taxi request by sending the passenger the taxi code only when a taxi is found and an estimated arrival time. Registered passengers can also make taxi reservations and they will receive the code as soon as a taxi is found available. Taxi drivers can access the service only from mobile application. Once logged in they can give the system their availability, or revoke it, and they will receive from the system ride requests that they can either accept or refuse. The login interface of the application is shared by passengers and taxi drivers.
-The system has the city map divided into areas of 2km$^{2}$ and holds a taxi queue in each area. It receives GPS coordinates from taxis, it assigns them to their corresponding area queue, placing them in the last position. Following a FIFO (First In First Out) logic, the first taxi receives a request and is then removed from the queue. In case of rejection, the taxi is placed in the last position of the queue.
+MyTaxiService is a system designed in order to improve the user experience of a taxi service and also improving the quality of life of taxi drivers. It was decided to design both a web application and a mobile application for the customers. These applications allow customers to easily request taxis and also to reserve a taxi ride, even if this feature is only for registered users. Taxi drivers on the other hand have access to the system only via mobile application. The system sends them requests that they can either accept or refuse and they are also able to set themselves available or unavailable. The system holds taxi queues in different areas of the city and depending on the position of the customers will forward requests to a specific queue instead of another. 
 \subsection{Definitions, Acronyms, Abbreviations}
 \subsection{Reference Documents}
 \begin{itemize}
-	\item Specification Document: MyTaxiService Project A.Y.2015-2016.
-	\item Requirements Analysis and Specification Document: MyTaxiService Project A.Y.2015-2016.
-	\item IEEE Std 1016-2009 IEEE Standard for Information Technology —Systems Design— Software Design Descriptions
 \end{itemize}
 \subsection{Document structure}
 This document is structured as following:
 \begin{enumerate}
 	\item \textbf{Introduction}: this section represents a generic description of the document.
-	\item \textbf{Architectural Design}: this section gives further informations about the project, focusing on the real implementation of its structure.
+	\item \textbf{Architectural Design}: this section gives informations about the architectural choices, showing also which styles and patterns have been selected.
 	\item \textbf{Algorithm Design}: this section focuses on the definition of the most relevant
 	algorithmic part of this project.
 	\item \textbf{User Interface Design}: provides an overview on how the user interface(s) of the system will look like.
