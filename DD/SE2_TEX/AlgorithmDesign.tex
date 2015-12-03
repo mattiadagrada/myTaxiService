@@ -1,1 +1,104 @@
 \section{Algorithm Design}
+	\subsection{Request management}
+	This algorithm
+	\subsubsection{Pseudocode}
+	\begin{algorithm}
+		\begin{algorithmic}[1]
+			\Procedure {MakeRequest}{user}
+			\If {$!validRequest(user)$}
+			\State $sendMessage(SPAM\_REQUEST\_ERROR, user)$
+			\Else
+			\State {$rqst \gets new\  Request(user)$}
+			\State {$storeRequest(rqst)$}
+			\State {$area \gets retrieveArea(origin)$}
+			\State {$taxi \gets area.queue.remove(0)$}
+			\State {$taxi.submitRequest(rqst)$}
+			\EndIf
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+	\begin{algorithm}
+		\begin{algorithmic}[1]
+			\Procedure {SubmitRequest}{request}
+			\State {$timer \gets new Timer(60)$}
+			\State {$timer.start()$}
+			\State {$sendMessage(rqst, taxi)$}
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+	\begin{algorithm}
+		\begin{algorithmic}[1]
+			\Procedure {RequestResponse} {answer, request}
+			\State{$request.manageAnswer(answer)$}
+			\If {$answer \equiv REFUSE$}
+			\State{$ taxi.declined++ $}
+			\If{$ taxi.declined \equiv 3 $}
+			\State {$ taxi.setUnavailable() $}
+			\Else
+			\State{$ queueManager.add(taxi) $}
+			\EndIf
+			\Else
+			\State {$ taxi.setUnavailable() $}
+			\EndIf
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+	\begin{algorithm}
+		\begin{algorithmic}[1]
+			\Procedure {ManageAnswer}{answer}
+			\If{$ answer \equiv REFUSE $}
+			\State{$area \gets retrieveArea(rqst.origin)$}
+			\State{$taxi \gets area.queue.remove(0)$}
+			\State{$taxi.submitRequest(rqst)$}
+			\Else
+			\State {$user.sendConfirmation(estimatedTime(), taxi)$}
+			\EndIf
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+	\newpage
+	\subsection{Queue balancing}
+	This algorithm shows the mechanism that every two minutes balances the area queues.
+	The idea is that a taxi may move from its position at any time, for any reason, and, perhaps,
+	pass through other areas than the one he belonged to when he was first inserted into the system.
+	So a simple job running this algorithm can keep the system up to date and avoid inconsistencies
+	(like sending a notification to a taxi out of the interested area).
+		\subsubsection{Pseudocode}
+		\begin{algorithm}
+			\begin{algorithmic}[1]
+				\ForAll {$TaxiDrivers\textnormal{ available as }TaxiDriver$}
+					\State $actualArea \gets TaxiDriver.Area$
+					\State $oldArea \gets TaxiDriver.Queue.Area$
+					\If{$actualArea \neq oldArea$}
+						\State $oldArea.\textnormal{extract}(TaxiDriver)$
+						\State $actualArea.\textnormal{insert}(TaxiDriver)$
+					\EndIf
+				\EndFor
+				\State $criticalAreas \gets \textnormal{List}$
+				\ForAll{$Areas \textnormal{ as } Area$}
+					\If{$Area.Queue.size \leq Area.minCriticalSize$} 
+						\State $criticalAreas.\textnormal{add}(Area)$
+					\EndIf
+				\EndFor
+				\State $surplusTaxis \gets \textnormal{List}$
+				\ForAll{$Queues \textnormal{ as } Queue$}
+					\ForAll{$TaxiDrivers \textnormal{ with index } \geq Queue.Area.maxCriticalSize$}
+						\State $surplusTaxis.\textnormal{add}(TaxiDriver)$
+					\EndFor
+				\EndFor
+				\State $nofitication \gets$ "In the areas ".$criticalAreas$.toString()." we have a taxi shortage.
+					Go there and get back to work!"
+				\ForAll {$surplusTaxis \textnormal{ as } TaxiDriver$}
+					\State $TaxiDriver.\textnormal{sendNotification}(notification)$
+				\EndFor
+			\end{algorithmic}
+		\end{algorithm}
+		\subsubsection{Clarifications}
+		The first section of the algorithm updates the area queues, moving taxis from the areas they belonged last
+		time they were inserted to the one they belong now, only if they are different (we assume that
+		\textit{TaxiDriver.Area} retrieves the actual position of the taxi and returns the corresponding area).
+		After the update, the system tries to balance his queues where the values are out of some critical values.
+		It is simple: if the length of an area queue is under a \textit{minCricitalSize}, that area needs to be
+		"filled" with taxis. If the length of an area queue is above a \textit{maxCricitalSize}, that area has
+		too many taxis without a reason an the last taxis in those queues can be moved elsewhere.
+		So the system notifies these \textit{surplusTaxis}, advising them to move where they are really needed.
