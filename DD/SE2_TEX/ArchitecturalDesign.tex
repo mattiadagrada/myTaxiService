@@ -155,7 +155,62 @@
 			\end{center}
 		\end{figure}
 	\end{landscape}
-	\newpage
+	\subsection{Sequence Diagrams}
+		\subsubsection{Guest submit request}
+		This diagram shows how the system works when a user approaches the application a tries to submit
+		a request as a guest user (not logged). We break the representation at the makeRequest method call
+		because we will show how it works only one time in Figure~\ref{fig:makeRequest}.
+		\begin{figure}[h!]
+			\begin{center}
+				\includegraphics[width=1\linewidth]{../SE2_SD/GuestSubmitRequest}
+				\caption{Guest submit request}
+			\end{center}
+		\end{figure}
+		\clearpage
+		\subsubsection{RegisteredPassenger submit request}
+		This diagram shows the behaviour of the system when a registered passenger logs into the system (so
+		we have also a sequence diagram example of the login process) and makes a reservation as a
+		Registered Passenger. As before, we break the representation at the makeRequest method call
+		because we will show how it works only one time in Figure~\ref{fig:makeRequest}.
+		\begin{figure}[h!]
+			\begin{center}
+				\includegraphics[width=1\linewidth]{../SE2_SD/RegisteredPassengerSubmitRequest}
+				\caption{RegisteredPassenger submit request}
+			\end{center}
+		\end{figure}
+		\clearpage
+		\subsubsection{Make Request}
+		This is how the system processes a Request submission.
+		\begin{figure}[h!]
+			\begin{center}
+				\includegraphics[width=1\linewidth]{../SE2_SD/makeRequest}
+				\caption{Make Request}
+				\label{fig:makeRequest}
+			\end{center}
+		\end{figure}
+		\clearpage
+		\subsubsection{Request response and Answer management}
+		When a request has been created and the first notification is sent to a taxi, the system should
+		manage the answer of the interested TaxiDriver bringing the necessary consequences to the Request
+		(in order to finally satisfy it) and the TaxiDriver itself.
+		\begin{figure}[h!]
+			\begin{center}
+				\includegraphics[width=1\linewidth]{../SE2_SD/RequestResponseManageAnswer}
+				\caption{Request response and answer management}
+			\end{center}
+		\end{figure}
+		\clearpage
+		\subsubsection{Reservation}
+		This is how the system processes a Request submission. As usual, we refer at the makeRequest
+		diagram at Figure~\ref{fig:makeRequest} for the creation and management of the Request relative
+		to this Reservation.
+		\begin{figure}[h!]
+			\begin{center}
+				\includegraphics[width=1\linewidth]{../SE2_SD/Reservation}
+				\caption{Reservation}
+			\end{center}
+		\end{figure}
+		\clearpage
 	\subsection{Component interfaces}
 		\subsubsection{Guest}
 		This is the basic interface assigned to client when the user accesses the application.
