@@ -342,5 +342,28 @@
 		\end{itemize}
 		\subsubsection{Database} 
 		This interface is provided by the database and it is used by the Backend and Frontend servers. With this interfaces Backend and Frontend servers are able to interact with the database, storing and retrieving data about for example registered passengers or reservations. There is no particular function since it will depend on how the database is effectively implemented.
+	\newpage
 	\subsection{Architectural styles and patterns}
-	\subsection{Other design decisions}
+	We want suggest some some styles and patterns that we decided to adopt in our system, but that have not been explained
+	clearly yet.
+	\begin{itemize}
+		\item The first, and probably the most relevant, is the four tier architecture. Our system is designed to
+		support a JEE architecture with a thin client on the user device, which is used only as a interface, and a,
+		relatively, fat server that processes all the operations.
+		\item An MVC approach has been followed. The user interfaces in the UserClient (view) are used only for
+		data exploration and command submission by the user.
+		The backend operates and processes (controller) the requests coming	from the user interfaces and interacts
+		with the persistent and dynamic (but global, like areas and queues)	data belonging to the model.
+		\item JMS is a good way to solve the "messaging problem". JMS is a services provided by JEE in its architecture.
+		Its goal is to manage the point-to-point message delivery in an asynchronous way, simply specifying who
+		has to receive a notification. A similar approach can be reproduced also without the JMS constraint.
+		\item There are two patterns that could be useful during implementation:
+		\begin{description}
+			\item[Factory Method] useful for components that must be continuously created,
+			maybe also by different components or as a result of different commands, like Users (Guest, ecc.),
+			Requests and Reservations. This allows a stronger control on the instance creation.
+			\item[Singleton] useful for components which needs only one instance in the whole system.
+		\end{description}
+	\end{itemize}
+	
+	
