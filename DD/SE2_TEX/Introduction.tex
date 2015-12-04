@@ -2,9 +2,13 @@
 \subsection{Purpose}
 The main goal of this document is to describe the system in terms of architectural design choices, going in details about the architectural styles and patterns, and also to show how these are implemented via pseudo-code utilizing meaningful examples.
 \subsection{Scope}
-MyTaxiService is a system designed in order to improve the user experience of a taxi service and also improving the quality of life of taxi drivers. It was decided to design both a web application and a mobile application for the customers. These applications allow customers to easily request taxis and also to reserve a taxi ride, even if this feature is only for registered users. Taxi drivers on the other hand have access to the system only via mobile application. The system sends them requests that they can either accept or refuse and they are also able to set themselves available or unavailable. The system holds taxi queues in different areas of the city and depending on the position of the customers will forward requests to a specific queue instead of another. 
-\subsection{Definitions, Acronyms, Abbreviations}
+MyTaxiService is a system designed in order to improve the user experience of a taxi service and also improving the quality of life of taxi drivers. It was decided to design both a web application and a mobile application for the customers. These applications allow customers to easily request taxis and also to reserve a taxi ride, even if this feature is only for registered users. Taxi drivers on the other hand have access to the system only via mobile application. The system sends them requests that they can either accept or refuse and they are also able to set themselves available or unavailable. The system holds taxi queues in different areas of the city and depending on the position of the customers will forward requests to a specific queue instead of another.
 \subsection{Reference Documents}
+We used as starting point 
+\begin{itemize}
+	\item MyTaxiService RASD
+	\item Structure of the design document
+\end{itemize}
 \subsection{Document structure}
 This document is structured as following:
 \begin{enumerate}
@@ -14,4 +18,6 @@ This document is structured as following:
 	algorithmic part of this project.
 	\item \textbf{User Interface Design}: provides an overview on how the user interface(s) of the system will look like.
 	\item \textbf{Requirements Traceability}: explains how the requirements defined in the RASD map	into the design elements.
+	\item \textbf{References}: shows from which documents we take informations.
+	\item \textbf{Other Info}: contains the hours of work and the tool used to write this document.
 \end{enumerate}
