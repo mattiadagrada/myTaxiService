@@ -33,15 +33,28 @@
 	\end{description}
 	\newpage
 	\subsection{High Level Components and their interaction}
+	We start introducing how we thought the four tier architecture of our system.
 	\begin{figure}[h!]
 		\begin{center}
 			\includegraphics[height=0.5\textheight]{../SE2_IMAGES/HLC}
 			\caption{High Level Component representation}
 		\end{center}
 	\end{figure}
+	The top block represents the Client, where the application or the web browser runs with our	clients.
+	The Client is connected to the Server of our application, which is divided in two subsystems:
+	\begin{description}
+		\item[Frontend] which represents the part of our system that provides to the client all the necessary
+		functions to perform all the functionalities that are required by the application
+		\item[Backend] which represents the beating hearth of our system, where all the requests, reservations,
+		and the services that our system should provide, are created and maintained.
+	\end{description}
+	The end point is the Database, where all the persistent data is stored for a long term availability.
 	\newpage
 	\begin{landscape}
 	\subsection{Component view}
+	This is a diagram that represents the whole system. We are focusing on the global components and their
+	connections, providing also a preview of the interfaces that the various components provide for the
+	interaction. A more detailed explanation of the single components follows the diagram.
 		\begin{figure}[h!]
 			\begin{center}
 				\includegraphics[width=0.9\linewidth]{../SE2_IMAGES/ComponentDiagram}
@@ -50,11 +63,11 @@
 		\end{figure}
 	\end{landscape}
 	\newpage
-	\subsubsection{Backend}
+	\subsubsection{Client}
 		\begin{figure}[h!]
 			\begin{center}
-				\includegraphics[width=1\linewidth]{../SE2_IMAGES/Backend}
-				\caption{Backend components}
+				\includegraphics[scale=1]{../SE2_IMAGES/UserClient}
+				\caption{Client components}
 			\end{center}
 		\end{figure}
 		In this subsystem we have placed all the components (mainly entities) that we do not want to let the client
@@ -62,10 +75,27 @@
 		management, and the database. This is practically the core of our system.
 		\paragraph{Client} user interface represents the generic type of client that interact with the system. It will most likely be an abstract class extended by WebClient and MobileClient.
 		\paragraph{WebClient, MobileClient} user interfaces represent a generalization of the Client since they both share the same functionalities except for the fact that a Taxi Driver can only use the MobileClient to interact with the system. They main difference between these two user interfaces is the different type of communication protocols they use to interact with the system.
+	\subsubsection{Frontend}
+		\begin{figure}[h!]
+			\begin{center}
+				\includegraphics[width=1\linewidth]{../SE2_IMAGES/Frontend}
+				\caption{Backend components}
+			\end{center}
+		\end{figure}
 		\paragraph{User} component is the generic type of user that can be created by the system. It is the representation of the client from the server point of view. It will most likely be an abstract class extended by Guest, RegisteredPassenger and TaxiDriver. User component is stateful since it is strictly related to a Client but once the session is over its instance is destroyed.
 		\paragraph{Guest} component is the representation from the server point of view of one of the possible actors that interact with the system. Guests can only perform requests. Guest component is stateful, as for the User, since it is strictly related to a Client but once the session is over its instance is destroyed.
 		\paragraph{RegisteredPassenger} component is the representation from the server point of view of one of the possible actors that interact with the system. RegisteredPassengers can perform requests or reservations and their data is stored in the database. This is due to the fact that a client that is a registered passenger has filled a registration form and has to log in before being able to access all these features. RegisteredPassenger component is stateful, as for the User, since it is strictly related to a Client but once the session is over its instance is destroyed.
 		\paragraph{TaxiDriver} component is the representation from the server point of view of one of the possible actors that interact with the system. TaxiDrivers can receive requests from the server and can accept or refuse them. They also have a status which can be available or unavailable and affects their presence in a queue. Their data is stored in the database as for the RegisteredPassengers. A client that is a TaxiDriver has to log in first to access all these features. TaxiDriver component is stateful, as for the User, since it is strictly related to a Client but once the session is over its instance is destroyed.
+	\subsubsection{Backend}
+	\begin{figure}[h!]
+		\begin{center}
+			\includegraphics[width=1\linewidth]{../SE2_IMAGES/Backend}
+			\caption{Backend components}
+		\end{center}
+	\end{figure}
+	In this subsystem we have placed all the components (mainly entities) that we do not want to let the client
+	interact directly. It is in direct communication with the frontend, responsible of the user
+	management, and the database. This is practically the core of our system.
 		\paragraph{Request}
 		This is a stateful component. A User (Guest or RegisteredPassenger) can ask to create an instance
 		which will be strictly related to the User himself and to the TaxiDriver who is asked to satisfy the
@@ -91,9 +121,21 @@
 		but we also want to be able to manage it without passing through the Area component all the times.
 		It is easier fort he QueueManager to operate with a direct access to the queues.
 		It is also sometimes useful to go back to areas from queues, so we keep a two way connection between them.
+	\subsubsection{Database}
+		\begin{figure}[h!]
+			\begin{center}
+				\includegraphics[scale=1]{../SE2_IMAGES/Database}
+				\caption{Backend components}
+			\end{center}
+		\end{figure}
 		\paragraph{Database} component is the database of our system. It stores all the important data that are often required by the Backend and the Frontend servers. Database component is singleton, it is created once and it is used during the whole life cycle of the system.
 	\begin{landscape}
 	\subsection{Deployment view}
+	We provide a sight of how our components should be deployed in the various physical devices that compose the
+	infrastructure of our system. In this case we assume that our Frontend and Backend subsystems run on the same
+	server, so they are deployed in the same block. They could also be executed on different machines, the developer
+	should simply define how the two subsystems should connect each other. On the application server will also
+	be available the web pages accessible through a web browser.
 		\begin{figure}[h!]
 			\begin{center}
 				\includegraphics[width=0.9\linewidth]{../SE2_IMAGES/DeploymentDiagram}
@@ -104,6 +146,8 @@
 	\newpage
 	\begin{landscape}
 	\subsection{Runtime view}
+	This is a "photograph" of the system during a hypothetical execution. The instances of the components and
+	their interconnections are well visible inside the respective blocks where they are executed.
 		\begin{figure}[h!]
 			\begin{center}
 				\includegraphics[width=0.9\linewidth]{../SE2_IMAGES/RuntimeDiagram}
@@ -162,7 +206,7 @@
 				reservation and the consequent request statuses.
 			\end{description}
 		\end{itemize}
-		\subsection{TaxiDriver}
+		\subsubsection{TaxiDriver}
 		This interface is provided by the TaxiDriver. With this interface a client is able to access the system via login. In particular this interface will be used only by mobile clients since the taxi drivers can't access the system via web. Once logged in they will be able to set themselves as available or unavailable and to see, accept or refuse requests.
 		\begin{itemize}
 			\item \textbf{login} this method gives the possibility to login the environment to be considered
