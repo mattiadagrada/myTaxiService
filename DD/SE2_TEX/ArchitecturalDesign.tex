@@ -60,6 +60,12 @@
 		In this subsystem we have placed all the components (mainly entities) that we do not want to let the client
 		interact directly. It is in direct communication with the frontend, responsible of the user
 		management, and the database. This is practically the core of our system.
+		\paragraph{Client} user interface represents the generic type of client that interact with the system. It will most likely be an abstract class extended by WebClient and MobileClient.
+		\paragraph{WebClient, MobileClient} user interfaces represent a generalization of the Client since they both share the same functionalities except for the fact that a Taxi Driver can only use the MobileClient to interact with the system. They main difference between these two user interfaces is the different type of communication protocols they use to interact with the system.
+		\paragraph{User} component is the generic type of user that can be created by the system. It is the representation of the client from the server point of view. It will most likely be an abstract class extended by Guest, RegisteredPassenger and TaxiDriver. User component is stateful since it is strictly related to a Client but once the session is over its instance is destroyed.
+		\paragraph{Guest} component is the representation from the server point of view of one of the possible actors that interact with the system. Guests can only perform requests. Guest component is stateful, as for the User, since it is strictly related to a Client but once the session is over its instance is destroyed.
+		\paragraph{RegisteredPassenger} component is the representation from the server point of view of one of the possible actors that interact with the system. RegisteredPassengers can perform requests or reservations and their data is stored in the database. This is due to the fact that a client that is a registered passenger has filled a registration form and has to log in before being able to access all these features. RegisteredPassenger component is stateful, as for the User, since it is strictly related to a Client but once the session is over its instance is destroyed.
+		\paragraph{TaxiDriver} component is the representation from the server point of view of one of the possible actors that interact with the system. TaxiDrivers can receive requests from the server and can accept or refuse them. They also have a status which can be available or unavailable and affects their presence in a queue. Their data is stored in the database as for the RegisteredPassengers. A client that is a TaxiDriver has to log in first to access all these features. TaxiDriver component is stateful, as for the User, since it is strictly related to a Client but once the session is over its instance is destroyed.
 		\paragraph{Request}
 		This is a stateful component. A User (Guest or RegisteredPassenger) can ask to create an instance
 		which will be strictly related to the User himself and to the TaxiDriver who is asked to satisfy the
@@ -85,6 +91,7 @@
 		but we also want to be able to manage it without passing through the Area component all the times.
 		It is easier fort he QueueManager to operate with a direct access to the queues.
 		It is also sometimes useful to go back to areas from queues, so we keep a two way connection between them.
+		\paragraph{Database} component is the database of our system. It stores all the important data that are often required by the Backend and the Frontend servers. Database component is singleton, it is created once and it is used during the whole life cycle of the system.
 	\begin{landscape}
 	\subsection{Deployment view}
 		\begin{figure}[h!]
@@ -128,7 +135,7 @@
 			Some personal data and the consent for the automatic position recovery are required for the submission
 			of the request. It also checks that all the constraints are respected before creating the Request object.
 			\begin{description}
-				\item[Input] Personal Data and consent
+				\item[Input] Personal Data and consensus
 				\item[Output] Nothing is returned directly, but the client will receive notifications about the
 				request status.
 			\end{description}
@@ -155,6 +162,16 @@
 				reservation and the consequent request statuses.
 			\end{description}
 		\end{itemize}
+		\subsection{TaxiDriver}
+		This interface is provided by the TaxiDriver. With this interface a client is able to access the system via login. In particular this interface will be used only by mobile clients since the taxi drivers can't access the system via web. Once logged in they will be able to set themselves as available or unavailable and to see, accept or refuse requests.
+		\begin{itemize}
+			\item \textbf{login} this method gives the possibility to login the environment to be considered
+			a taxi driver and will access the taxi driver interface
+			\begin{description}
+				\item[Input] Login Data required for the login
+				\item[Output] The result of the login (success or failure in case of error)
+			\end{description}
+		\end{itemize}
 		\subsubsection{Request}
 		This interface is provided to the User instances to create, and eventually interact, with a request.
 		\begin{itemize}
@@ -177,5 +194,54 @@
 				\item[Output] A Reservation
 			\end{description}
 		\end{itemize}
+		\subsubsection{TaxiRequest} 
+		This interface is provided by the Request. With this interface TaxiDrivers receive requests that they can accept or refuse them.
+		\begin{itemize}
+			\item \textbf{submitRequest} this method is used to send a request to a taxi driver
+			\begin{description}
+				\item[Input] Request that will be sent to the taxi driver
+				\item[Output] The result of the submit (success or failure in case of error)
+			\end{description}
+			\item \textbf{requestReply} this method is used by the taxi driver to accept or refuse the request they have received
+			\begin{description}
+				\item[Input] Request that the taxi driver has received and his answer
+				\item[Output] The result of the reply (success or failure in case of error)
+			\end{description}
+		\end{itemize}
+		\subsubsection{QueueManager} 
+		This interface is provided by the QueueManager. With this interface TaxiDrivers can set their status as available or unavailable, affecting their presence in the queue. This also mean that the QueueManager can add or remove a TaxiDriver from the queue.
+		\begin{itemize}
+			\item \textbf{setAvailable} this method is used to change the taxi driver status to available
+			\begin{description}
+				\item[Input] Nothing
+				\item[Output] Nothing is returned but the taxi driver will see on his application that his status has changed
+			\end{description}
+			\item \textbf{setUnavailable} this method is used to change the taxi driver status to unavailable
+			\begin{description}
+				\item[Input] Nothing
+				\item[Output] Nothing is returned but the taxi driver will see on his application that his status has changed
+			\end{description}
+			\item \textbf{add} this method is used by the QueueManager to add a taxi driver to a queue
+			\begin{description}
+				\item[Input] TaxiDriver that will be added to the queue
+				\item[Output] the result of the operation (success or failure in case of error)
+			\end{description}
+			\item \textbf{remove} this method is used to remove a taxi driver from a queue
+			\begin{description}
+				\item[Input] TaxiDriver that will be removed from the queue
+				\item[Output] the result of the operation (success or failure in case of error)
+			\end{description}
+		\end{itemize}
+		\subsubsection{Area} 
+		This interface is provided by the Area. With this interface the Request can retrieve Area's informations and get the first available taxi from queue in order to submit him a request.
+		\begin{itemize}
+			\item \textbf{getQueueHead} this method is used to retrieve the first taxi in a queue
+			\begin{description}
+				\item[Input] Nothing
+				\item[Output] The first taxi driver from the queue corresponding to the area in use
+			\end{description}
+		\end{itemize}
+		\subsubsection{Database} 
+		This interface is provided by the database and it is used by the Backend and Frontend servers. With this interfaces Backend and Frontend servers are able to interact with the database, storing and retrieving data about for example registered passengers or reservations. There is no particular function since it will depend on how the database is effectively implemented.
 	\subsection{Architectural styles and patterns}
 	\subsection{Other design decisions}

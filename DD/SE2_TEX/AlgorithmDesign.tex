@@ -3,7 +3,7 @@
 	our system should work. We will not provide the code of the most common functionalities, but we
 	have selected two of the most significant for our project.
 	\subsection{Request management}
-	This algorithm
+	This algorithm is focused on the request managment.\\ In the first procedure ManageRequest, first it checks if the request by that specific client is valid, meaning that the client hasn't done any request in the last 30 minutes. If the request is not valid then it is refused with an error notification sent to the client, otherwise the request is instantiated and stored in the database. From the request's info it retrieves an area and then the first taxi available, to which the request is sent.\\ In the second procedure SubmitRequest there's a timer indicating the window of time that the taxi driver has to answer the request and the notification that is showed to the taxi driver.\\ In the third procedure RequestReply it is checked the answer given by the taxi driver. In case of negative answer, the number of declined answers by that taxi driver in incremented by 1 and when it reaches the third consecutive decline the taxi is set unavailable, otherwise it is added in queue again.\\ In the last procedure ManageAnswer it is checked again the answer. In case of negative answer the operations to retrieve the first taxi in the queue are done again, otherwise the request confirmation is sent to the client which contains the estimated arrival time and the taxi ID.
 	\subsubsection{Pseudocode}
 	\begin{algorithm}
 		\begin{algorithmic}[1]
