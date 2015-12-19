@@ -1,0 +1,27 @@
+https://github.com/mattiadagrada/myTaxiService
+Professor: Di Nitto
+Students: Mattia Dagrada, Cesare Bernardis
+
+Methods:
+
+CESARE
+{
+Name:getLaunchInfo( String appName , String contextRoot , Map oneRow )
+Start Line:368
+Location:appserver/admingui/common/src/main/java/org/glassfish/admingui/common/handlers/ApplicationHandlers.java
+
+Name:if( appPropsMap != null )
+Start Line:617
+Location:appserver/admingui/common/src/main/java/org/glassfish/admingui/common/handlers/ApplicationHandlers.java
+}
+
+MATTIA
+{
+Name:calContextRoot( String contextRoot )
+Start Line:741
+Location:appserver/admingui/common/src/main/java/org/glassfish/admingui/common/handlers/ApplicationHandlers.java
+
+Name:getURLs( List < String > vsList , String configName , Collection < String > hostNames , String target )
+Start Line:760
+Location:appserver/admingui/common/src/main/java/org/glassfish/admingui/common/handlers/ApplicationHandlers.java
+}
