@@ -1,0 +1,60 @@
+\section{Code Inspection}
+\subsection{getLaunchInfo}
+	\subsubsection{Description}
+	\begin{description}
+	\item[Location]: appserver/admingui/common/src/main/java/org/glassfish/admingui/common/handlers/ApplicationHandlers.java
+	\item[Name]: getLaunchInfo(String appName, String contextRoot, Map oneRow)
+	\item[Modifiers]: private static void
+	\item[Start Line]: 368
+	\end{description}
+	\subsubsection{Issues}
+	\begin{description}
+		\item[11] One statement statements are not surrounded by curly braces
+			\begin{itemize}
+			\item If at line 378
+			\item If at line 396
+			\end{itemize}
+		\item[13] Multiple lines exceed the 80 characters (spaces included).
+			This is not a major issue, because none of them	exceeds the limit of 120 characters on the same line and
+			the readability is not compromised.
+			\begin{itemize}
+				\item Line 369
+				\item Line 380
+				\item Line 391
+				\item Line 394
+				\item Line 395
+			\end{itemize}
+		\item[18] This is a private method, so it is comprehensible that no javadoc has been provided, but
+		without comments it is quite hard to understand what the method does.
+		\item[52] There are no exceptions caught or thrown explicitly. There are extra controls to avoid method
+		calls on null objects and some other measures to avoid execution errors, but they might not be enough.
+	\end{description}
+\subsection{if(appPropsMap != null)}
+	\subsubsection{Description}
+	\begin{description}
+	\item[Location]: appserver/admingui/common/src/main/java/org/glassfish/admingui/common/handlers/ApplicationHandlers.java
+	\item[Name]: if(appPropsMap != null)
+	\item[Start Line]: 617
+	\end{description}
+	\subsubsection{Issues}
+	\begin{description}
+		\item[9] A tab is used to indent line 617
+		\item[11] One statement statements are not surrounded by curly braces
+		\begin{itemize}
+			\item For at line 636
+			\item If at line 639
+		\end{itemize}
+		\item[14] Two lines exceed the 120 characters (spaces included).
+		\begin{itemize}
+			\item Line 629 (151 chars)
+			\item Line 631 (146 chars)
+		\end{itemize}
+		\item[17] There is a mistake in the indentation: the wrapping If is not aligned with the upper statement.
+		\item[18] In this piece of code (that is a particular part of a method) there are no sensible comments.
+		Unfortunately also the javadoc is incomplete and is not clear the role of this public method.
+		\item[23] The javadoc for this method is incomplete, practically it is totally missing.
+		\item[33] In the For at line 618 there are several declarations and initializations mixed with "put"
+		operations in the output row.
+		\item[53] There is a single try-catch block for the whole piece of code. It is not very elegant, but
+		it avoids errors. The problem is that the general exception is catched, but no actions are properly taken.
+	\end{description}

@@ -1,0 +1,47 @@
+\documentclass[11pt,a4paper,titlepage]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{pdflscape}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\begin{document}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{../SE2_IMAGES/Logo_Politecnico_Milano}
+\end{figure}
+\title{Politecnico di Milano\\A.Y. 2015/2016\\\textbf{Glassfish 4.1}\\Code Inspection\\}
+\author{Bernardis Cesare matr. 852509 \and Dagrada Mattia matr.852975}
+\date{January 5, 2016}
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\include{Classes}
+\include{Issues}
+\include{AdditionalMaterial}
+
+\end{document}
