@@ -1,4 +1,3 @@
-
 \section{Checklist}
 	\subsection{Naming Conventions}
 	\begin{enumerate}
@@ -152,7 +151,7 @@
 		\item Check that EOF conditions are detected and handled correctly
 		\item Check that all file exceptions are caught and dealt with accordingly
 	\end{enumerate}
-\newpage
+\pagebreak
 \section{Classes}
 	\subsection{ApplicationHandlers}
 		\subsubsection{Details}
@@ -169,8 +168,14 @@
 			\item[23] Javadoc is very poor, it is almost totally missing.
 			\item[27] There is a method (getURLs at line 760) that is longer than 50 lines.
 		\end{description}
-\newpage
+\clearpage
 \section{Assigned Class clusters}
+	\subsection{Introduction}
+	The parts processed in this document belong to the same class ApplicationHandlers.
+	In this class the javadoc is almost completely absent and the comments are rare and ineffective.
+	The comprehension of the functional roles has been very difficult to deal with, because it has been
+	forced to the pure code interpretation. Fortunately a good naming convention has been respected,
+	making the understanding a little "less impossible", but yet very superficial.
 	\subsection{getLaunchInfo}
 		\subsubsection{Description}
 		\begin{description}
@@ -178,7 +183,15 @@
 		\item[Name]: getLaunchInfo(String appName, String contextRoot, Map oneRow)
 		\item[Modifiers]: private static void
 		\item[Start Line]: 368
+		\item[Functional Role]: Retrieves some informations about an application (the name of which is passed
+		as a parameter). It makes some rest requests and parses the responses to set, in particular, two values
+		in the Map passed as parameter: 'contextRoot' (if not passed as parameter) and 'hasLaunch'.
 		\end{description}
+		\newpage
+		\subsubsection{Code}
+		\begin{figure}[h!]
+			\includegraphics[width=\textwidth]{../SE2_CODE/getlaunchinfo}
+		\end{figure}
 		\subsubsection{Issues}
 		\begin{description}
 			\item[11] One statement statements are not surrounded by curly braces
@@ -190,25 +203,35 @@
 				This is not a major issue, because none of them	exceeds the limit of 120 characters on the same line and
 				the readability is not compromised.
 				\begin{itemize}
-					\item Line 369
+					\item Line 369 could be divided into segments after '+' operator.
 					\item Line 380
 					\item Line 391
-					\item Line 394
+					\item Line 394 could be divided into segments after '+' operator.
 					\item Line 395
 				\end{itemize}
 			\item[18] This is a private method, so it is comprehensible that no javadoc has been provided, but
 			without comments it is quite hard to understand what the method does.
+			\item[33] This will NOT be considered an issue: at line 396 there is a declaration and initialization
+			that is not at the beginning of a "physical" block, but it can be considered an initialization
+			for the loop at line 397 (in order to make it easier to understand).
 			\item[52] There are no exceptions caught or thrown explicitly. There are extra controls to avoid method
 			calls on null objects and some other measures to avoid execution errors, but they might not be enough.
 		\end{description}
-	\newpage
+	\clearpage
 	\subsection{if(appPropsMap != null)}
 		\subsubsection{Description}
 		\begin{description}
 		\item[Location]: appserver/admingui/common/src/main/java/org/glassfish/admingui/common/handlers/ApplicationHandlers.java
 		\item[Name]: if(appPropsMap != null)
 		\item[Start Line]: 617
+		\item[Functional Role]: For every value in appPropsMap (which is a Map containing, probably,
+		the properties of an application) retrieves some informations and puts them into a Map that will be
+		added to the result object.
 		\end{description}
+		\subsubsection{Code}
+		\begin{figure}[h!]
+			\includegraphics[width=\textwidth]{../SE2_CODE/ifapppropsmap}
+		\end{figure}
 		\subsubsection{Issues}
 		\begin{description}
 			\item[9] A tab is used to indent line 617
@@ -219,8 +242,8 @@
 			\end{itemize}
 			\item[14] Two lines exceed the 120 characters (spaces included).
 			\begin{itemize}
-				\item Line 629 (151 chars)
-				\item Line 631 (146 chars)
+				\item Line 629 (151 chars) could be divided into '?:' operator segments.
+				\item Line 631 (146 chars) could be divided into '?:' operator segments.
 			\end{itemize}
 			\item[17] There is a mistake in the indentation: the wrapping If is not aligned with the upper statement.
 			\item[18] In this piece of code (that is a particular part of a method) there are no sensible comments.
