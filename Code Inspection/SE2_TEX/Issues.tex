@@ -254,3 +254,72 @@
 			\item[53] There is a single try-catch block for the whole piece of code. It is not very elegant, but
 			it avoids errors. The problem is that the general exception is catched, but no actions are properly taken.
 		\end{description}
+		\subsection{calContextRoot(String contextRoot)}
+			\subsubsection{Description}
+			\begin{description}
+			\item[Location]: appserver/admingui/common/src/main/java/org/glassfish/admingui/common/handlers/ApplicationHandlers.java
+			\item[Name]: calContextRoot(String contextRoot)
+			\item[Start Line]: 741
+			\item[Functional Role]: This method is used to correctly calculate the context root given one as paramenter that may not be complete or well formed. This is evident
+			from the code and from the comment.
+			\end{description}
+			\newpage
+			\subsubsection{Code}
+			\begin{figure}[h!]
+				\includegraphics[width=\textwidth]{../SE2_CODE/calContextRoot}
+			\end{figure}
+			\subsubsection{Issues}
+			\begin{description}
+				\item[13] Line 745 exceeds the 80 characters.
+				\item[23] The javadoc for this method is totally missing.
+				\item[52] There are no exceptions caught or thrown explicitly but there is a control on null object. This should be enough since this is a simple method.
+			\end{description}
+		\newpage
+		\subsection{getURLs(List$<$String$>$ vsList, String configName, Collection$<$String$>$ hostNames, String target)}
+			\subsubsection{Description}
+			\begin{description}
+			\item[Location]: appserver/admingui/common/src/main/java/org/glassfish/admingui/common/handlers/ApplicationHandlers.java
+			\item[Name]: getURLs(List$<$String$>$ vsList, String configName, Collection$<$String$>$ hostNames, String target)
+			\item[Start Line]: 760
+			\item[Functional Role]: This method is used to get the list of URLs starting from a list of virtual servers. Starting from the server it creates a configuration string
+			that is used to recover the configuration of virtual servers. It then recovers the local host name and for each virtual server it which is not null, it computes again
+			the configuration string and from which it tries to recover a list of listeners. In case the list is not empty it computes every single different listener. Finally it
+			calculate	the type of protocol, security and port for every listener, computing the URL and adding it to the list to be returned.
+			\end{description}
+			\newpage
+			\subsubsection{Code}
+			\begin{figure}[h!]
+				\includegraphics[width=\textwidth]{../SE2_CODE/getURLs}
+			\end{figure}
+			\subsubsection{Issues}
+			\begin{description}
+				\item[2] There two variables named "ep" and "vs" which are used throughout the entire method but their names don't help at all understanding what they mean.
+				\item[8] Line 805 is not intedented properly, actually it is not intented at all.
+				\item[13] A lot of lines exceed the 80 characters. This doesn't compromise readability too much but the method looks really messy.
+					\begin{itemize}
+						\item Line 771 (84 chars)
+						\item Line 777 (112 chars)
+						\item Line 795 (88 chars)
+						\item Line 797 (97 chars)
+						\item Line 802 (82 chars)
+						\item Line 808 (83 chars)
+						\item Line 812 (96 chars)
+						\item Line 805 (95 chars)
+						\item Line 814 (104 chars)
+						\item Line 823 (114 chars)
+						\item Line 827 (97 chars)
+						\item Line 831 (105 chars)
+					\end{itemize}
+				\item[14] Line 813 exceeds 120 characters (123 character). This could be prevented using another high-level break.
+				\item[19] There is commented code with no reasons to be so, nor a date on which it could be removed.
+				\begin{itemize}
+					\item Line 811
+					\item Line 829 and 830
+				\end{itemize}
+				\item[23] The javadoc for this method is totally missing.
+				\item[52] There are two try-catch blocks but are used for generic exception, it works fine but a more specific exception could be better. A lot of code is instead lacking
+				try-catch blocks but there are few controls in If statements. Even tho it is probably enough, other blocks could be useful.
+				\item[53] There is an exception caught at line 785 which action is non existent, there is only a comment saying "ignore exception". This may not be totally wrong if
+				the comment said also why the exception can be ignored. Anyway it is always better to do something in the catch block, even sending an error messagge.
+			\end{description}
+		\newpage
