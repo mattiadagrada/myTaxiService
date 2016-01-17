@@ -254,13 +254,22 @@
 				\item[Output] Nothing is returned directly, but the client will receive notifications about the
 				request status.
 			\end{description}
-			\item \textbf{makeReservation}: this method gives the possibility to a guest to make a single reservation.
+			\item \textbf{makeReservation}: this method gives the possibility to a logged user to make a single reservation.
 			For a reservation some additional informations are required, that must be provided at the submission.
 			This method also checks that all the constraints are respected before creating the Reservation object.
 			\begin{description}
 				\item[Input] The origin time and place where the taxi ride will begin
 				\item[Output] Nothing is returned directly, but the client will receive notifications about the
 				reservation and the consequent request statuses.
+			\end{description}
+			\item \textbf{deleteReservation}: this method gives the possibility to delete a reservation.
+			The time constraints are checked and, if all the test are passed and no Request related to this
+			reservation already exists, the record is deleted from the database. No Requests for this
+			Reservation will be forwarded.
+			\begin{description}
+				\item[Input] The Reservation that has to be deleted
+				\item[Output] Nothing is returned directly, but the client will receive notifications about the
+				result of the operation.
 			\end{description}
 		\end{itemize}
 		\subsubsection{TaxiDriver}
@@ -271,6 +280,21 @@
 			\begin{description}
 				\item[Input] Login Data required for the login
 				\item[Output] The result of the login (success or failure in case of error)
+			\end{description}
+			\item \textbf{setAvailable} this method is used to change the taxi driver status to available
+			\begin{description}
+				\item[Input] Nothing
+				\item[Output] Nothing is returned but the taxi driver will see on his application that his status has changed
+			\end{description}
+			\item \textbf{setUnavailable} this method is used to change the taxi driver status to unavailable
+			\begin{description}
+				\item[Input] Nothing
+				\item[Output] Nothing is returned but the taxi driver will see on his application that his status has changed
+			\end{description}
+			\item \textbf{submitRequest} this method is used to send a request to a taxi driver
+			\begin{description}
+				\item[Input] Request that will be sent to the taxi driver
+				\item[Output] The result of the submit (success or failure in case of error)
 			\end{description}
 		\end{itemize}
 		\subsubsection{Request}
@@ -298,11 +322,6 @@
 		\subsubsection{TaxiRequest} 
 		This interface is provided by the Request. With this interface TaxiDrivers receive requests that they can accept or refuse them.
 		\begin{itemize}
-			\item \textbf{submitRequest} this method is used to send a request to a taxi driver
-			\begin{description}
-				\item[Input] Request that will be sent to the taxi driver
-				\item[Output] The result of the submit (success or failure in case of error)
-			\end{description}
 			\item \textbf{requestReply} this method is used by the taxi driver to accept or refuse the request they have received
 			\begin{description}
 				\item[Input] Request that the taxi driver has received and his answer
@@ -312,16 +331,6 @@
 		\subsubsection{QueueManager} 
 		This interface is provided by the QueueManager. With this interface TaxiDrivers can set their status as available or unavailable, affecting their presence in the queue. This also mean that the QueueManager can add or remove a TaxiDriver from the queue.
 		\begin{itemize}
-			\item \textbf{setAvailable} this method is used to change the taxi driver status to available
-			\begin{description}
-				\item[Input] Nothing
-				\item[Output] Nothing is returned but the taxi driver will see on his application that his status has changed
-			\end{description}
-			\item \textbf{setUnavailable} this method is used to change the taxi driver status to unavailable
-			\begin{description}
-				\item[Input] Nothing
-				\item[Output] Nothing is returned but the taxi driver will see on his application that his status has changed
-			\end{description}
 			\item \textbf{add} this method is used by the QueueManager to add a taxi driver to a queue
 			\begin{description}
 				\item[Input] TaxiDriver that will be added to the queue
