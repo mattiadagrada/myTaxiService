@@ -1,0 +1,195 @@
+\paragraph{Integration Test of the UserClient - software}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{ID} & \textbf{Integration Test} \\
+	\hline
+	I1 & MobileClient and System \\
+	\hline
+	I2 & System and MobileClient \\
+	\hline
+	I3 & WebClient and System \\
+	\hline
+	I4 & System and Web Client
+	\hline
+\end{tabular}
+\paragraph{Integration Test of the FrontEnd system - software}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{ID} & \textbf{Integration Test} \\
+	\hline
+	I5 & Guest and Request \\
+	\hline
+	I6 & RegisteredPassenger and Request \\
+	\hline
+	I7 & RegisteredPassenger and Reservation (Make) \\
+	\hline
+	I8 & RegisteredPassenger and Reservation (Delete) \\
+	\hline
+	I9 & TaxiDriver and Request (Accept)\\
+	\hile
+	I9T1 & TaxiDriver and Request (Refuse)\\
+	\hline
+	I10T1 & Client and TaxiDriver (SetAvailable) \\
+	\hline
+	I10T2 & Client and TaxiDriver (SetUnavailable) \\
+	\hline
+\end{tabular}
+
+\paragraph{Integration test case I1}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & MobileClient and system \\
+	\hline
+	\textbf{Input Specification} & Fill one of the available form of a MobileClient \\
+	\hline
+	\textbf{Output Specification} & Verify that the input form is correctly received by the system \\
+	\hline
+	\textbf{Environmental Needs} & All the server functionalities tested \\
+\end{tabular}
+
+\paragraph{Integration test case I2}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & System and MobileClient \\
+	\hline
+	\textbf{Input Specification} & Send a test notification to a MobileClient \\
+	\hline
+	\textbf{Output Specification} & Verify that the notification is shown correctly \\
+	\hline
+	\textbf{Environmental Needs} & All the server functionalities tested \\
+\end{tabular}
+
+\paragraph{Integration test case I3}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & WebClient and system \\
+	\hline
+	\textbf{Input Specification} & Fill one of the available form of a WebClient \\
+	\hline
+	\textbf{Output Specification} & Verify that the input form is correctly received by the system \\
+	\hline
+	\textbf{Environmental Needs} & All the server functionalities tested \\
+	\end{tabular}
+
+\paragraph{Integration test case I4}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & System and WebClient \\
+	\hline
+	\textbf{Input Specification} & Send a test notification to a WebClient \\
+	\hline
+	\textbf{Output Specification} & Verify that the notification is shown correctly \\
+	\hline
+	\textbf{Environmental Needs} &  All the server functionalities tested \\
+	\end{tabular}
+
+\paragraph{Integration test case I5}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & Guest and Request \\
+	\hline
+	\textbf{Input Specification} & Perform a MakeRequest by the Guest \\
+	\hline
+	\textbf{Output Specification} & Verify that the request is correctly created, meaning that it contains all the correct informations \\
+	\hline
+	\textbf{Environmental Needs} & TESTATA LA REQUEST  \\
+	\end{tabular}
+
+\paragraph{Integration test case I6}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & RegisteredPassenger and Request \\
+	\hline
+	\textbf{Input Specification} & Perform a MakeRequest by the RegisteredPassenger \\
+	\hline
+	\textbf{Output Specification} & Verify that the request is correctly created, meaning that it contains all the correct informations \\
+	\hline
+	\textbf{Environmental Needs} & TESTATA LA REQUEST \\
+\end{tabular}
+
+\paragraph{Integration test case I7}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & RegisteredPassenger and Reservation \\
+	\hline
+	\textbf{Input Specification} & Perform a MakeReservation by the RegisteredPassenger \\
+	\hline
+	\textbf{Output Specification} & Verify that the reservation is correctly created, meaning that it contains all the correct informations \\
+	\hline
+	\textbf{Environmental Needs} &  TESTATA LA RESERVATION \\
+\end{tabular}
+
+\paragraph{Integration test case I8}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & RegisteredPassenger and Reservation \\
+	\hline
+	\textbf{Input Specification} & Perform a DeleteReservation by the RegisteredPassenger \\
+	\hline
+	\textbf{Output Specification} & Verify that the reservation is effectively been deleted \\
+	\hline
+	\textbf{Environmental Needs} &  TESTATA LA RESERVATION \\
+\end{tabular}
+
+\paragraph{Integration test case I9T1}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & TaxiDriver and Request \\
+	\hline
+	\textbf{Input Specification} &  The TaxiDriver accepts a request\\
+	\hline
+	\textbf{Output Specification} & Verify that the request is accepted and the TaxiDriver is no longer in queue, therefore it is not available\\
+	\hline
+	\textbf{Environmental Needs} & TESTATA LA REQUEST \\
+\end{tabular}
+
+\paragraph{Integration test case I9T2}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & TaxiDriver and Request \\
+	\hline
+	\textbf{Input Specification} & The TaxiDriver refuses a request\\
+	\hline
+	\textbf{Output Specification} & Verify that the request is refused, the TaxiDriver is put again in queue and the request is submitted to another Taxi \\
+	\hline
+	\textbf{Environmental Needs} & TESTATA LA REQUEST \\
+\end{tabular}
+
+\paragraph{Integration test case I10T1}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & Client and TaxiDriver\\
+	\hline
+	\textbf{Input Specification} & The TaxiDriver set its status Available\\
+	\hline
+	\textbf{Output Specification} & Verify that the TaxiDriver is added in queue \\
+	\hline
+	\textbf{Environmental Needs} & TESTATA LA QUEUE MANAGER \\
+\end{tabular}
+
+\paragraph{Integration test case I10T2}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Item(s)} & CLient and TaxiDriver \\
+	\hline
+	\textbf{Input Specification} & The TaxiDriver set its status Unavailable\\
+	\hline
+	\textbf{Output Specification} & Verify that the TaxiDriver is removed from the queue \\
+	\hline
+	\textbf{Environmental Needs} & TESTATA LA QUEUE MANAGER \\
+\end{tabular}
+
+\paragraph{Test Procedure}
+\begin{tabular}{l | l}
+	\hline
+	\textbf{Test Procedure Identifier} & TP1 \\
+	\hline
+	\textbf{Purpose} & This test procedures verifies that
+	\\begin{itemize}
+		\item Can handle input from the client
+		\item Can output notification to the client
+	\end{itemize}\\
+	\hline
+	\textbf{Procedure Steps} & Verify that the TaxiDriver is removed from the queue \\
+	\hline
+\end{tabular}
