@@ -61,17 +61,15 @@
 		\paragraph{Integration Test of the Frontend system - software}
 		\begin{tabular}{p{2cm} | p{10cm}} \hline
 			\textbf{ID} & \textbf{Integration Test} \\ \hline
-			I12 & Guest $\rightarrow$ Request \\ \hline
-			I13 & RegisteredPassenger $\rightarrow$ Request \\ \hline
-			I14 & RegisteredPassenger $\rightarrow$ Reservation \\ \hline
-			I15 & TaxiDriver $\rightarrow$ Request \\ \hline
-			I16 & TaxiDriver \\ \hline
+			I12 & Client $\rightarrow$ Guest \\ \hline
+			I13 & Client $\rightarrow$ RegisteredPassenger \\ \hline
+			I14 & MobileClient $\rightarrow$ TaxiDriver \\ \hline
 		\end{tabular}
 		\paragraph{Integration Test of the UserClient - software}
 		\begin{tabular}{p{2cm} | p{10cm}} \hline
 			\textbf{ID} & \textbf{Integration Test} \\ \hline
-			I17 & MobileClient $\leftrightarrow$ System \\ \hline
-			I18 & WebClient $\leftrightarrow$ System \\ \hline
+			I15 & MobileClient $\leftrightarrow$ System \\ \hline
+			I16 & WebClient $\leftrightarrow$ System \\ \hline
 		\end{tabular}
 		\subsubsection{Subsystem Integration Sequence}
 			When all the subsystems have been individually tested, the can be integrated one by one
@@ -98,9 +96,9 @@
 					\item can store a RegisteredPassenger
 				\end{itemize}
 				\\ \hline
-				\textbf{Procedure Steps} &  \\ \hline
+				\textbf{Procedure Steps} & I4T1, I12T1, I15T1 and I16T1(MobileClient), I17T1 and I18T1(WebClient) \\ \hline
 			\end{tabular}
-			\\ \\
+			\vspace{1cm}
 			\begin{tabular}{p{4cm} | p{8cm}} \hline
 				\textbf{Test Procedure ID} & TP2 \\ \hline
 				\textbf{Purpose} & This test procedure verifies whether the login procedure works
@@ -111,9 +109,9 @@
 						\item can retrieve the RegisteredPassenger
 					\end{itemize}
 				\\ \hline
-				\textbf{Procedure Steps} &  \\ \hline
+				\textbf{Procedure Steps} & I4T2, I12T2, I15T1 and I16T1(MobileClient), I17T1 and I18T1(WebClient)\\ \hline
 			\end{tabular}
-			\\ \\
+			\vspace{1cm}
 			\begin{tabular}{p{4cm} | p{8cm}} \hline
 				\textbf{Test Procedure ID} & TP3 \\ \hline
 				\textbf{Purpose} & This test procedure verifies whether the login procedure works
@@ -126,9 +124,9 @@
 					\item can revoke his availability
 				\end{itemize}
 				\\ \hline
-				\textbf{Procedure Steps} &  \\ \hline
+				\textbf{Procedure Steps} & I5T2, I14T1, I11T2, I14T4, I11T1, I14T5, I15T1 and I16T1(MobileClient) \\ \hline
 			\end{tabular}
-			\\ \\
+			\vspace{1cm}
 			\begin{tabular}{p{4cm} | p{8cm}} \hline
 				\textbf{Test Procedure ID} & TP4 \\ \hline
 				\textbf{Purpose} & This test procedure verifies whether a Guest can make a request:
@@ -138,9 +136,9 @@
 					\item can submit the request to a TaxiDriver
 				\end{itemize}
 				\\ \hline
-				\textbf{Procedure Steps} &  \\ \hline
+				\textbf{Procedure Steps} & I1T1, I3T2, I5T2, I6T1, I7T1, I12T3 \\ \hline
 			\end{tabular}
-			\\ \\
+			\vspace{1cm}
 			\begin{tabular}{p{4cm} | p{8cm}} \hline
 				\textbf{Test Procedure ID} & TP5 \\ \hline
 				\textbf{Purpose} & This test procedure verifies whether a RegisteredPassenger can make a request:
@@ -149,9 +147,9 @@
 					\item can submit the request to a TaxiDriver
 				\end{itemize}
 				\\ \hline
-				\textbf{Procedure Steps} &  \\ \hline
+				\textbf{Procedure Steps} &  \\ I1T1, I4T2, I5T2, I6T1, I8T1, I13T1 \\ \hline
 			\end{tabular}
-			\\ \\
+			\vspace{1cm}
 			\begin{tabular}{p{4cm} | p{8cm}} \hline
 				\textbf{Test Procedure ID} & TP6 \\ \hline
 				\textbf{Purpose} & This test procedure verifies whether a TaxiDriver can answer to a request:
@@ -161,9 +159,9 @@
 					\item can answer negatively
 				\end{itemize}
 				\\ \hline
-				\textbf{Procedure Steps} &  \\ \hline
+				\textbf{Procedure Steps} &  \\ I5T2, I7T1, I8T1, I10T1(positive). I10T2(negative) \\ \hline
 			\end{tabular}
-			\\ \\
+			\vspace{1cm}
 			\begin{tabular}{p{4cm} | p{8cm}} \hline
 				\textbf{Test Procedure ID} & TP7 \\ \hline
 				\textbf{Purpose} & This test procedure verifies whether a RegisteredPassenger can make a reservation:
@@ -172,9 +170,9 @@
 					\item can create and store the reservation
 				\end{itemize}
 				\\ \hline
-				\textbf{Procedure Steps} &  \\ \hline
+				\textbf{Procedure Steps} & I2T1, I8T1, I9T1, I13T2 \\ \hline
 			\end{tabular}
-			\\ \\
+			\vspace{1cm}
 			\begin{tabular}{p{4cm} | p{8cm}} \hline
 				\textbf{Test Procedure ID} & TP8 \\ \hline
 				\textbf{Purpose} & This test procedure verifies whether a RegisteredPassenger can delete a reservation:
@@ -183,5 +181,5 @@
 					\item can delete the selected reservation
 				\end{itemize}
 				\\ \hline
-				\textbf{Procedure Steps} &  \\ \hline
+				\textbf{Procedure Steps} & I2T3, I2T2, I13T3\\ \hline
 			\end{tabular}
