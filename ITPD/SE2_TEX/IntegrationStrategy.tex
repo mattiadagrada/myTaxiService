@@ -7,6 +7,10 @@
 	This is a necessary constraint that must be satisfied, because the purpose of the tests discussed in this
 	document is to check the interaction between components (that's why it is called "integration testing").
 	\subsection{Elements to be Integrated}
+	\textit{Premise}: for a more detailed description of the system structure, refer to myTaxiService Design Document,
+	sections 2.3 and 2.7.
+	\\
+	\\
 	Our system has been originally divided in four subsystems:
 	\begin{itemize}
 		\item Client
@@ -19,40 +23,13 @@
 	so we are going to test all the interfaces provided by the components, dedicating a test case to every
 	different interaction that involves an interface. Practically we want to test all the couples of components
 	that interact between them.
-	\paragraph{Integration Test of the UserClient - software}
-	\begin{tabular}{p{2cm} | p{10cm}} \hline
-		\textbf{ID} & \textbf{Integration Test} \\ \hline
-		I17 & MobileClient $\leftrightarrow$ System \\ \hline
-		I18 & WebClient $\leftrightarrow$ System \\ \hline
-	\end{tabular}
-	\paragraph{Integration Test of the FrontEnd system - software}
-	\begin{tabular}{p{2cm} | p{10cm}} \hline
-		\textbf{ID} & \textbf{Integration Test} \\ \hline
-		I12 & Guest $\rightarrow$ Request \\ \hline
-		I13 & RegisteredPassenger $\rightarrow$ Request \\ \hline
-		I14 & RegisteredPassenger $\rightarrow$ Reservation \\ \hline
-		I15 & TaxiDriver $\rightarrow$ Request \\ \hline
-		I16 & TaxiDriver $\rightarrow$ TaxiDriver \\ \hline
-	\end{tabular}
-	\paragraph{Integration Test of the Backend system - software}
-	\begin{tabular}{p{2cm} | p{10cm}} \hline
-		\textbf{ID} & \textbf{Integration Test} \\ \hline
-		I6 & Request $\rightarrow$ Area \\ \hline
-		I7 & Guest $\rightarrow$ Request \\ \hline
-		I8 & RegisteredPassenger $\rightarrow$ Request \\ \hline
-		I9 & RegisteredPassenger $\rightarrow$ Reservation \\ \hline
-		I10 & TaxiDriver $\rightarrow$ Request \\ \hline
-		I11 & TaxiDriver $\rightarrow$ QueueManager \\ \hline
-	\end{tabular}
-	\paragraph{Integration Test of the Database - software}
-	\begin{tabular}{p{2cm} | p{10cm}} \hline
-		\textbf{ID} & \textbf{Integration Test} \\ \hline
-		I1 & Request $\rightarrow$ Database \\ \hline
-		I2 & Reservation $\rightarrow$ Database \\ \hline
-		I3 & Guest $\rightarrow$ Database \\ \hline
-		I4 & RegisteredPassenger $\rightarrow$ Database \\ \hline
-		I5 & TaxiDriver $\rightarrow$ Database \\ \hline
-	\end{tabular}
+	\newpage
+	\begin{figure}[h!]
+		\begin{center}
+			\includegraphics[width=\textwidth]{../SE2_IMAGES/system}
+			\caption{A particular component view}
+		\end{center}
+	\end{figure}
 	\subsection{Integration Testing Strategy}
 	We have chosen a bottom-up strategy. We think it's the best choice because represents a more gradual
 	approach to the system testing. It also allows to find an eventual issue at the deepest level of
@@ -60,4 +37,64 @@
 	resort to a tougher analysis.
 	\subsection{Sequence of Component/Function Integration}
 		\subsubsection{Software Integration Sequence}
+		The order of the tests into the tables (and the growing ID number too) represents also the sequence in
+		which the components will be integrated within each subsystem.
+		\paragraph{Integration Test of the Database - software}
+		\begin{tabular}{p{2cm} | p{10cm}} \hline
+			\textbf{ID} & \textbf{Integration Test} \\ \hline
+			I1 & Request $\rightarrow$ Database \\ \hline
+			I2 & Reservation $\rightarrow$ Database \\ \hline
+			I3 & Guest $\rightarrow$ Database \\ \hline
+			I4 & RegisteredPassenger $\rightarrow$ Database \\ \hline
+			I5 & TaxiDriver $\rightarrow$ Database \\ \hline
+		\end{tabular}
+		\paragraph{Integration Test of the Backend system - software}
+		\begin{tabular}{p{2cm} | p{10cm}} \hline
+			\textbf{ID} & \textbf{Integration Test} \\ \hline
+			I6 & Request $\rightarrow$ Area \\ \hline
+			I7 & Guest $\rightarrow$ Request \\ \hline
+			I8 & RegisteredPassenger $\rightarrow$ Request \\ \hline
+			I9 & RegisteredPassenger $\rightarrow$ Reservation \\ \hline
+			I10 & TaxiDriver $\rightarrow$ Request \\ \hline
+			I11 & TaxiDriver $\rightarrow$ QueueManager \\ \hline
+		\end{tabular}
+		\paragraph{Integration Test of the Frontend system - software}
+		\begin{tabular}{p{2cm} | p{10cm}} \hline
+			\textbf{ID} & \textbf{Integration Test} \\ \hline
+			I12 & Guest $\rightarrow$ Request \\ \hline
+			I13 & RegisteredPassenger $\rightarrow$ Request \\ \hline
+			I14 & RegisteredPassenger $\rightarrow$ Reservation \\ \hline
+			I15 & TaxiDriver $\rightarrow$ Request \\ \hline
+			I16 & TaxiDriver \\ \hline
+		\end{tabular}
+		\paragraph{Integration Test of the UserClient - software}
+		\begin{tabular}{p{2cm} | p{10cm}} \hline
+			\textbf{ID} & \textbf{Integration Test} \\ \hline
+			I17 & MobileClient $\leftrightarrow$ System \\ \hline
+			I18 & WebClient $\leftrightarrow$ System \\ \hline
+		\end{tabular}
 		\subsubsection{Subsystem Integration Sequence}
+			When all the subsystems have been individually tested, the can be integrated one by one
+			attaching, the subsystems sequentially in the following order:
+			\\ \\
+			\begin{tabular}{p{2cm} | p{10cm}} \hline
+				\textbf{Order} & \textbf{Subsystem} \\ \hline
+				1 & Database \\ \hline
+				2 & BackendSystem \\ \hline
+				3 & FrontendSystem \\ \hline
+				4 & Client \\ \hline
+			\end{tabular}
+			\\ \\
+			When the integration testing reaches the top level and the whole system has been integrated,
+			some integration test procedures can be individuated analysing the functionalities that our system
+			has to provide.
+			\\ \\
+			\begin{tabular}{p{3cm} | p{7cm}} \hline
+				\textbf{Test Procedure ID} & TP1 \\ \hline
+				\textbf{Purpose} & This test procedure verifies wether the client software:
+					\begin{itemize}
+						\item 
+					\end{itemize}
+				\\ \hline
+				\textbf{Procedure Steps} & TP1 \\ \hline
+			\end{tabular}
