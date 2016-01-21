@@ -1,1 +1,23 @@
 \section{Program Stubs and Test Data Required}
+As we already said in section 2, we used a bottom-up approach with our testing strategy,
+therefore we utilized drivers instead of stubs
+\subsection{Request Driver}
+The Request Driver is needed to test the correct functioning ofthe queue. In particular this driver
+is used to trigger the retrieval of the first taxi in the queue to whom the dummy request should be
+submitted. The dummy request will be made ad hoc to trigger the method on the desired queue.
+\subsection{Guest Driver}
+The Guest Driver is needed to test the correct functioning of the Request interface. In particular
+this driver is used to create a request by a dummy Guest, that will insert random data to see if the request
+is generated correctly.
+\subsection{RegisteredPassenger Driver}
+The RegisteredPassenger Driver is needed to test the correct function of the Request interface.
+In particular this driver is used to create a Request by a dummy RegisteredPassenger,
+to see if the request is generated correctly. Also it is indirectly used during the test of
+the reservation since a reservation triggers a request once its time comes.
+\subsection{TaxiDriver Driver}
+The TaxiDriver Driver is needed to test the correct function of the TaxiRequest interface, and also to
+test the correct functioning of the queue. In particular this driver is used to give a positive answer or a negative one
+by a dummy TaxiDriver to a given request: in case of negative answer the TaxiDriver has to be put again in queue in the last
+position, while in case of positive answer the the system will ensure that the TaxiDriver is no longer in queue.
+The other use of this driver is to send an input to the system using the method SetAvailable or SetUnavailable. In the first case
+the TaxiDriver will be added in queue while in the second one the TaxiDriver will be removed from the queue.
