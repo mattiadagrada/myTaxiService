@@ -1,1 +1,24 @@
 \section{Tools and Test Equipment Required}
+	\subsection{Arquillian}
+	\textit{'The mission of the Arquillian project is to provide a simple test harness that developers can use
+		to produce a broad range of integration tests for their Java applications...'}
+	\begin{figure}[h!]
+		\begin{center}
+			\href{http://arquillian.org/}{\includegraphics[scale=1]{../SE2_IMAGES/arquillian}}
+		\end{center}
+	\end{figure}
+	Arquillian, a testing framework developed at JBoss.org, empowers the developer to write integration
+	tests for business objects that are executed inside a container or that interact with the container as a client.
+	The container may be an embedded or remote Servlet container, Java EE application server, Java SE CDI
+	environment or any other container implementation provided. Arquillian strives to make integration
+	testing no more complicated than basic unit testing.
+	\\
+	\\
+	It's obvious that this solution represents a good choice mainly if JEE is the environment chosen to develop
+	our project, as we suggested in Design Document, otherwise it could be not compatible with the code written.
+	\subsection{Manual testing}
+	The manual testing of the interactions is always available. It may be not a wise choice, because there are
+	no aids nor automations, but it could be the only way to test some parts of your code. The manual testing
+	could be also slow and unsafe (paradox: it could be bugged itself), so we do not recommend to use it as
+	a universal choice, but it could be a great solution if used in combination with a software tool to cover
+	what the tool can not manage easily.
