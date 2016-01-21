@@ -32,6 +32,15 @@
 				that matches the input identifier is deleted correctly. If there are no matches nothing is changed \\ \hline
 				Environmental Needs & None \\ \hline
 			\end{tabular}
+			\begin{tabular}{ |l p{10cm}| } \hline
+		        Test Case Identifier & I2T3 \\ \hline
+		        Test Case Description & Retreive a Reservation from the database \\ \hline
+		      	Test Item(s) & Reservation $\rightarrow$ Database \\ \hline
+		        Input Specification & A Reservation identifier \\ \hline
+		        Output Specification & Check that the correct method is called and that the object returned
+		        matches with the data stored into the database\\ \hline
+		        Environmental Needs & None \\ \hline
+		    \end{tabular}
 		\end{center}
 		\subsubsection{Integration test case I3}
 		\begin{center}
@@ -190,11 +199,11 @@
 		\begin{center}
 			\begin{tabular}{ |l p{10cm}| } \hline
 				Test Case Identifier & I12T1 \\ \hline
-				Test Case Description & Create a Request as Guest \\ \hline
-				Test Item(s) & Guest $\rightarrow$ Request \\ \hline
-				Input Specification & A Guest performs a MakeRequest\\ \hline
-				Output Specification & Check that the method returns a correct output notification, meaning that if the form was correctly filled then
-				the request should've been successful, the other way around otherwise \\ \hline
+				Test Case Description & A Guest performs a registration \\ \hline
+				Test Item(s) & Client $\rightarrow$ Guest \\ \hline
+				Input Specification & All the personal data required to fill the registration form \\ \hline
+				Output Specification & If the registration has been successful a success notification is shown, if not an error
+				notification is shown \\ \hline
 				Environmental Needs & I7T1 \\ \hline
 			\end{tabular}
 		\end{center}
@@ -202,11 +211,11 @@
 		\begin{center}
 			\begin{tabular}{ |l p{10cm}| } \hline
 				Test Case Identifier & I13T1 \\ \hline
-				Test Case Description & Create a Request as RegisteredPassenger \\ \hline
-				Test Item(s) & RegisteredPassenger $\rightarrow$ Request \\ \hline
-				Input Specification & A RegisteredPassenger perform a MakeRequest \\ \hline
-				Output Specification & Check that the method returns a correct output notification, meaning that if the form was correctly filled then
-				the request should've been successful, the other way around otherwise\\ \hline
+				Test Case Description & A Guest logs into the service \\ \hline
+				Test Item(s) & Client $\rightarrow$ Guest \\ \hline
+				Input Specification & The required log in data \\ \hline
+				Output Specification & If the log in has been successful, the Client is now logged in as a RegisteredPassenger, if not
+				an error notification is shown\\ \hline
 				Environmental Needs & I8T1 \\ \hline
 			\end{tabular}
 		\end{center}
@@ -214,22 +223,33 @@
 		\begin{center}
 			\begin{tabular}{ |l p{10cm}| } \hline
 				Test Case Identifier & I14T1 \\ \hline
-				Test Case Description & Create a Reservation as RegisteredPassenger \\ \hline
-				Test Item(s) & RegisteredPassenger $\rightarrow$ Reservation \\ \hline
-				Input Specification & A RegisteredPassenger perform a MakeReservation \\ \hline
-				Output Specification & Check that the method returns a correct output notification, meaning that if the form was correctly filled then
-				the reservation should've been successful, the other way around otherwise\\ \hline
+				Test Case Description & A Guest makes a request \\ \hline
+				Test Item(s) & Client $\rightarrow$ Guest \\ \hline
+				Input Specification & Personal data required in order to make a request and the position consensus \\ \hline
+				Output Specification & There is no direct output but the Client will receive a notification if the request has been successful \\ \hline
 				Environmental Needs & I9T1 \\ \hline
 			\end{tabular}
 		\end{center}
+		\subsubsection{Integration test case I15}
 		\begin{center}
 			\begin{tabular}{ |l p{10cm}| } \hline
-				Test Case Identifier & I14T2 \\ \hline
-				Test Case Description & Delete a Reservation as RegisteredPassenger \\ \hline
-				Test Item(s) & RegisteredPassenger $\rightarrow$ Reservation \\ \hline
-				Input Specification & A RegisteredPassenger performs a DeleteReservation\\ \hline
-				Output Specification & Check that the method returns a correct output notification, meaning that the deleted reservation is no longer in the
-				list of reservations of that RegisteredPassenger \\ \hline
+				Test Case Identifier & I15T1 \\ \hline
+				Test Case Description & A RegisteredPassenger makes a request \\ \hline
+				Test Item(s) & Client $\rightarrow$ RegisteredPassenger \\ \hline
+				Input Specification & Nothing, all the data about the RegisteredPassenger are already store into the database. He will have to give the position consensus\\ \hline
+				Output Specification & There is no direct output but the Client will receive a notification if the request has been successful \\ \hline
+				Environmental Needs & I2T1 \\ \hline
+			\end{tabular}
+		\end{center}
+		\subsubsection{Integration test case I16}
+		\begin{center}
+			\begin{tabular}{ |l p{10cm}| } \hline
+				Test Case Identifier & I16T1 \\ \hline
+				Test Case Description & A RegisteredPassenger makes a reservation \\ \hline
+				Test Item(s) & Client $\rightarrow$ RegisteredPassenger \\ \hline
+				Input Specification & The origin and the data with the time \\ \hline
+				Output Specification & There is no direct output but the Client will receive a notification if the reservation has been successful.
+				He will also receive a notification once the request related to the reservation starts \\ \hline
 				Environmental Needs & I2T1 \\ \hline
 			\end{tabular}
 		\end{center}
@@ -237,46 +257,58 @@
 		\begin{center}
 			\begin{tabular}{ |l p{10cm}| } \hline
 				Test Case Identifier & I15T1 \\ \hline
-				Test Case Description & Accept a Request as TaxiDriver \\ \hline
-				Test Item(s) & TaxiDriver $\rightarrow$ Request \\ \hline
-				Input Specification & The TaxiDriver performs a requestReply with a positive answer  \\ \hline
-				Output Specification & Verify that the request is accepted and the TaxiDriver is no longer in queue, therefore it is not available \\ \hline
+				Test Case Description & A TaxiDriver logs into the service \\ \hline
+				Test Item(s) & MobileClient $\rightarrow$ TaxiDriver \\ \hline
+				Input Specification & The required log in data  \\ \hline
+				Output Specification & If the log in has been successful, so the Client is now logged in as a TaxiDriver, if not an
+				error notification is shown \\ \hline
 				Environmental Needs & I10T1 \\ \hline
-			\end{tabular}
-			\begin{tabular}{ |l p{10cm}| } \hline
-				Test Case Identifier & I15T2 \\ \hline
-				Test Case Description & Refuse a Request as TaxiDriver \\ \hline
-				Test Item(s) & TaxiDriver $\rightarrow$ Request \\ \hline
-				Input Specification & The TaxiDriver performs a requestReply with a negative answer \\ \hline
-				Output Specification & Verify that the request is refused and the TaxiDriver is put again in queue \\ \hline
-				Environmental Needs & I10T2 \\ \hline
 			\end{tabular}
 		\end{center}
 		\subsubsection{Integration test case I16}
 		\begin{center}
 			\begin{tabular}{ |l p{10cm}| } \hline
 				Test Case Identifier & I16T1 \\ \hline
-				Test Case Description & A TaxiDriver set his status as available  \\ \hline
-				Test Item(s) & TaxiDriver \\ \hline
-				Input Specification & The TaxiDriver performs a SetAvailable \\ \hline
-				Output Specification & Check the current status of the TaxiDriver is now Available \\ \hline
-				Environmental Needs & I11T2 \\ \hline
+				Test Case Description & A TaxiDriver refuse a request \\ \hline
+				Test Item(s) & MobileClient $\rightarrow$ TaxiDriver \\ \hline
+				Input Specification & The positive answer input  \\ \hline
+				Output Specification & If the reply is successful, a positive notification is shown, if not an error
+				notification is shown\\ \hline
+				Environmental Needs & I10T1 \\ \hline
 			\end{tabular}
-		\end{center}
-		\begin{center}
 			\begin{tabular}{ |l p{10cm}| } \hline
 				Test Case Identifier & I16T2 \\ \hline
-				Test Case Description & A TaxiDriver set his status as unavailable  \\ \hline
-				Test Item(s) & TaxiDriver \\ \hline
-				Input Specification & The TaxiDriver performs a SetUnavailable \\ \hline
-				Output Specification & Check the current status of the TaxiDriver is now Unavailable \\ \hline
-				Environmental Needs & I11T1 \\ \hline
+				Test Case Description & A TaxiDriver accepts a request \\ \hline
+				Test Item(s) & MobileClient $\rightarrow$ TaxiDriver \\ \hline
+				Input Specification & The negative answer input \\ \hline
+				Output Specification & If the reply is successful, a positive notification is shown, if not an error
+				notification is shown\\ \hline
+				Environmental Needs & I10T2 \\ \hline
 			\end{tabular}
 		\end{center}
 		\subsubsection{Integration test case I17}
 		\begin{center}
 			\begin{tabular}{ |l p{10cm}| } \hline
 				Test Case Identifier & I17T1 \\ \hline
+				Test Case Description & A TaxiDriver set his status as available  \\ \hline
+				Test Item(s) & MobileClient $\rightarrow$ TaxiDriver \\ \hline
+				Input Specification & Nothing \\ \hline
+				Output Specification & The current status of the TaxiDriver is now shown as Available \\ \hline
+				Environmental Needs & I11T2 \\ \hline
+			\end{tabular}
+			\begin{tabular}{ |l p{10cm}| } \hline
+				Test Case Identifier & I17T2 \\ \hline
+				Test Case Description & A TaxiDriver set his status as unavailable  \\ \hline
+				Test Item(s) & MobileClient $\rightarrow$ TaxiDriver \\ \hline
+				Input Specification & Nothing \\ \hline
+				Output Specification & The current status of the TaxiDriver is now shown as Unavailable \\ \hline
+				Environmental Needs & I11T1 \\ \hline
+			\end{tabular}
+		\end{center}
+		\subsubsection{Integration test case I18}
+		\begin{center}
+			\begin{tabular}{ |l p{10cm}| } \hline
+				Test Case Identifier & I18T1 \\ \hline
 				Test Case Description & MobileClient performs a random input \\ \hline
 				Test Item(s) & MobileClient $\rightarrow$ System \\ \hline
 				Input Specification & Fill one of the available form of a MobileClient \\ \hline
@@ -286,7 +318,7 @@
 		\end{center}
 		\begin{center}
 			\begin{tabular}{ |l p{10cm}| } \hline
-				Test Case Identifier & I17T2 \\ \hline
+				Test Case Identifier & I18T2 \\ \hline
 				Test Case Description & Send a random notification to the MobileClient \\ \hline
 				Test Item(s) & System $\rightarrow$ MobileClient \\ \hline
 				Input Specification & Send a test notification to a MobileClient \\ \hline
@@ -294,10 +326,10 @@
 				Environmental Needs & All the server functionalities tested \\ \hline
 			\end{tabular}
 		\end{center}
-		\subsubsection{Integration test case I18}
+		\subsubsection{Integration test case I19}
 		\begin{center}
 			\begin{tabular}{ |l p{10cm}| } \hline
-				Test Case Identifier & I18T1\\ \hline
+				Test Case Identifier & I19T1\\ \hline
 				Test Case Description & WebClient performs a random input  \\ \hline
 				Test Item(s) & WebClient $\rightarrow$ System \\ \hline
 				Input Specification & Fill one of the available form of a WebClient \\ \hline
@@ -307,7 +339,7 @@
 		\end{center}
 		\begin{center}
 			\begin{tabular}{ |l p{10cm}| } \hline
-				Test Case Identifier & I18T2 \\ \hline
+				Test Case Identifier & I19T2 \\ \hline
 				Test Case Description & Send a random notification to the WebClient \\ \hline
 				Test Item(s) & System $\rightarrow$ WebClient \\ \hline
 				Input Specification & Send a test notification to a WebClient \\ \hline

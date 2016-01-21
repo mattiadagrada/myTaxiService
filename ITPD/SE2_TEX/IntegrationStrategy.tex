@@ -86,15 +86,97 @@
 			\end{tabular}
 			\\ \\
 			When the integration testing reaches the top level and the whole system has been integrated,
-			some integration test procedures can be individuated analysing the functionalities that our system
-			has to provide.
+			some integration test procedures can be individuated analysing the main functionalities that
+			our system has to provide.
 			\\ \\
-			\begin{tabular}{p{3cm} | p{7cm}} \hline
+			\begin{tabular}{p{4cm} | p{8cm}} \hline
 				\textbf{Test Procedure ID} & TP1 \\ \hline
-				\textbf{Purpose} & This test procedure verifies wether the client software:
+				\textbf{Purpose} & This test procedure verifies whether the registration process works:
+				\begin{itemize}
+					\item can access both the Clients
+					\item can fill the registration form
+					\item can store a RegisteredPassenger
+				\end{itemize}
+				\\ \hline
+				\textbf{Procedure Steps} &  \\ \hline
+			\end{tabular}
+			\\ \\
+			\begin{tabular}{p{4cm} | p{8cm}} \hline
+				\textbf{Test Procedure ID} & TP2 \\ \hline
+				\textbf{Purpose} & This test procedure verifies whether the login procedure works
+					for the RegisteredPassenger:
 					\begin{itemize}
-						\item 
+						\item can access both the Clients
+						\item can fill the login form
+						\item can retrieve the RegisteredPassenger
 					\end{itemize}
 				\\ \hline
-				\textbf{Procedure Steps} & TP1 \\ \hline
+				\textbf{Procedure Steps} &  \\ \hline
+			\end{tabular}
+			\\ \\
+			\begin{tabular}{p{4cm} | p{8cm}} \hline
+				\textbf{Test Procedure ID} & TP3 \\ \hline
+				\textbf{Purpose} & This test procedure verifies whether the login procedure works
+				for the TaxiDriver and he is able to manage his availability:
+				\begin{itemize}
+					\item can access the MobileClient
+					\item can fill the login form
+					\item can retrieve the TaxiDriver
+					\item can give his availability
+					\item can revoke his availability
+				\end{itemize}
+				\\ \hline
+				\textbf{Procedure Steps} &  \\ \hline
+			\end{tabular}
+			\begin{tabular}{p{4cm} | p{8cm}} \hline
+				\textbf{Test Procedure ID} & TP4 \\ \hline
+				\textbf{Purpose} & This test procedure verifies whether a Guest can make a request:
+				\begin{itemize}
+					\item can fill the request form
+					\item can create and store the request
+					\item can submit the request to a TaxiDriver
+				\end{itemize}
+				\\ \hline
+				\textbf{Procedure Steps} &  \\ \hline
+			\end{tabular}
+			\begin{tabular}{p{4cm} | p{8cm}} \hline
+				\textbf{Test Procedure ID} & TP5 \\ \hline
+				\textbf{Purpose} & This test procedure verifies whether a RegisteredPassenger can make a request:
+				\begin{itemize}
+					\item can create and store the request
+					\item can submit the request to a TaxiDriver
+				\end{itemize}
+				\\ \hline
+				\textbf{Procedure Steps} &  \\ \hline
+			\end{tabular}
+			\begin{tabular}{p{4cm} | p{8cm}} \hline
+				\textbf{Test Procedure ID} & TP6 \\ \hline
+				\textbf{Purpose} & This test procedure verifies whether a TaxiDriver can answer to a request:
+				\begin{itemize}
+					\item can view the notification of a request
+					\item can answer positively
+					\item can answer negatively
+				\end{itemize}
+				\\ \hline
+				\textbf{Procedure Steps} &  \\ \hline
+			\end{tabular}
+			\begin{tabular}{p{4cm} | p{8cm}} \hline
+				\textbf{Test Procedure ID} & TP5 \\ \hline
+				\textbf{Purpose} & This test procedure verifies whether a RegisteredPassenger can make a reservation:
+				\begin{itemize}
+					\item can fill the reservation form
+					\item can create and store the reservation
+				\end{itemize}
+				\\ \hline
+				\textbf{Procedure Steps} &  \\ \hline
+			\end{tabular}
+			\begin{tabular}{p{4cm} | p{8cm}} \hline
+				\textbf{Test Procedure ID} & TP5 \\ \hline
+				\textbf{Purpose} & This test procedure verifies whether a RegisteredPassenger can delete a reservation:
+				\begin{itemize}
+					\item can view his reservations
+					\item can delete the selected reservation
+				\end{itemize}
+				\\ \hline
+				\textbf{Procedure Steps} &  \\ \hline
 			\end{tabular}
