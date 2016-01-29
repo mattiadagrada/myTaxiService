@@ -1,0 +1,43 @@
+ILF: 3*7 + 10*1 = 31
+\begin{itemize}
+  \item user: simple
+  \item reservation: simple
+  \item request: simple
+  \item area: queue internal in the area so average
+\end{itemize}
+
+ELF: 10*1 = 10
+\begin{itemize}
+  \item map(taken from googlemaps): complex
+\end{itemize}
+
+External Inputs: 2*3 + 2*4 + 2*6 = 26
+\begin{itemize}
+  \item Login/Logout: simple
+  \item Registration: simple
+  \item make request: complex
+  \item make/delete reservation: complex (due to including request)
+  \item give/revoke availability: average
+  \item accept/refuse request: average
+\end{itemize}
+
+External Outputs: 4*1 = 4
+\begin{itemize}
+  \item notification: simple
+\end{itemize}
+
+External Inquiries: 2*3 = 6
+\begin{itemize}
+  \item reservation list: simple
+  \item taxi driver profile: simple
+\end{itemize}
+
+Totale = 77
+
+LOC = 46*77 = 3542
+
+effort = 2.94*EAF*(3542)^1.0997 = 11.81 Person/Months
+
+Duration = 3.67 * (11.81)^0,3179 =8.04
+
+N_people = effort / Duration = 11.81 / 8.04 = 1.47 -> 2
