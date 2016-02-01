@@ -1,36 +1,74 @@
-ILF: 3*7 + 10*1 = 31
+\section{Functional Point Approach}
+The Functional Point approach is a technique that is used to evaluate the effort
+needed for the design and implementation of an application.
+This technique evaluates an application analysing the functionalities of the application itself.
+For what concerns our application all the functionalities can be derived from the RASD document and from
+the Design Document. Each functionality is evaluated in its totality.
+This technique groups the functionalities of an application in:
 \begin{itemize}
-  \item user: simple
-  \item reservation: simple
-  \item request: simple
-  \item area: queue internal in the area so average
+  \item  Internal Logic File: it represents a set of homogeneous data handled
+by the system. In our application, MyTaxiDriver, in this category are included all the
+data structure saved into the database.
+ \item External Interface File: it represents a set of homogeneous data used
+by the application but generated and handled by external application. In our application, MyTaxiDriver,
+in this category is included the map service offered by GoogleMaps.
+ \item External Imput: elementary operation to elaborate data coming from the external environment.
+ \item External Output: elementary operation that generates data for the external environment.
+ \item External Inquiry: elementary operation that involves input and output.
+operations.
 \end{itemize}
+The following table outline the number of Functional Point based on funtionality
+and relative complexity:
+\begin{tabular} { l | l | l  } \hline
+  \multirow{2}{*}{Function Point} & \multicolumn{3}{ | c | }{Complexity} \hline
 
-ELF: 10*1 = 10
-\begin{itemize}
-  \item map(taken from googlemaps): complex
-\end{itemize}
 
-External Inputs: 2*3 + 2*4 + 2*6 = 26
-\begin{itemize}
-  \item Login/Logout: simple
-  \item Registration: simple
-  \item make request: complex
-  \item make/delete reservation: complex (due to including request)
-  \item give/revoke availability: average
-  \item accept/refuse request: average
-\end{itemize}
 
-External Outputs: 4*1 = 4
-\begin{itemize}
-  \item notification: simple
-\end{itemize}
+\end{tabular}
 
-External Inquiries: 2*3 = 6
-\begin{itemize}
-  \item reservation list: simple
-  \item taxi driver profile: simple
-\end{itemize}
+\subsection{Internal Logic File}
+The system stores
+
+
+\begin{tabular} { l | l | r  } \hline
+  Internal Logic File & Complexity & FP
+  User & Simple & 7
+  Request & Simple & 7
+  Reservation & Simple & 7
+  Area & Average & 10
+  Total & \multicolumn{2}{ | r |}{31}
+\end{tabular}
+
+\begin{tabular} { l | l | r  } \hline
+  External Interface File & Complexity & FP
+  Map & Complex & 10
+  Total & \multicolumn{2}{ | r |}{10}
+\end{tabular}
+
+\begin{tabular} { l | l | l  } \hline
+  External Input & Complexity & FP
+  Login/Logout & Simple & 3
+  Registration & Simple & 3
+  Make Request & Complex & 6
+  Make/Delete Reservation & Complex & 6
+  Give/Revoke Availability & Average & 4
+  Accept/Refuse Request & Average & 4
+  Total & \multicolumn{2}{ | r |}{26}
+\end{tabular}
+
+\begin{tabular} { l | l | r  } \hline
+  External Interface File & Complexity & FP
+  Notificaiton & Simple & 4
+  Total & \multicolumn{2}{ | r |}{4}
+\end{tabular}
+
+\begin{tabular} { l | l | r  } \hline
+  External Interface File & Complexity & FP
+  Reservation & Simple & 3
+  Taxi driver profile & 3
+  Total & \multicolumn{2}{ | r |}{6}
+\end{tabular}
+
 
 Totale = 77
 
