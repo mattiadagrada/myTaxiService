@@ -12,12 +12,12 @@ data structure saved into the database.
  \item External Interface File: it represents a set of homogeneous data used
 by the application but generated and handled by external application. In our application, MyTaxiDriver,
 in this category is included the map service offered by GoogleMaps.
- \item External Imput: elementary operation to elaborate data coming from the external environment.
+ \item External Input: elementary operation to elaborate data coming from the external environment.
  \item External Output: elementary operation that generates data for the external environment.
  \item External Inquiry: elementary operation that involves input and output.
 operations.
 \end{itemize}
-The following table outline the number of Functional Point based on funtionality
+The following table outline the number of Functional Point based on functionality
 and relative complexity:
 \begin{center}
 \begin{tabular} { | l | c | c | c | } \hline
@@ -87,8 +87,8 @@ the application.
   \item Give/Revoke Availability: these operations are considered average since they involve a TaxiDriver and the
   QueueManager which will add or remove the TaxiDriver from the Queue he currently is in.
   \item Accept/Refuse Request: these operations are considered average since they involve a TaxiDriver and a Request
-  but also the QueueManager because the TaxiDriver is preemptively removed from the Queue when he receive a Request notification.
-  In case the TaxiDriver refuses the request the QueueManager has to place him again in Queue.
+  but also the QueueManager because the TaxiDriver is preventively removed from the Queue when he receive a Request notification.
+  In case the TaxiDriver refuses the request, the QueueManager has to place him again in Queue.
 \end{itemize}
 \begin{center}
 \begin{tabular} { | l | l | l |  } \hline
@@ -122,6 +122,7 @@ inputs, but only few inquiries. The only inquiries we have, are:
 	\item the list of reservation, simple objects, to let the registered passenger select
 	the reservation to delete
 	\item the taxi profile, another simple set of data, where he can set his availability.
+\end{itemize}
 \begin{center}
 \begin{tabular} {|  l | l | r | } \hline
   External Interface File & Complexity & FP \\ \hline
@@ -176,40 +177,3 @@ And finally we can estimate the number of people needed to complete the project
 	$ N_{people} = \frac {effort}{Duration}$ \\
 	$ N_{people} = \frac {15.57}{8.78} = 1.77 \rightarrow 2 people $
 \end{center}
-
-\section{Tasks}
-\subsection{Identification}
-We present a brief description of the tasks that our project requires to be executed.
-\begin{description}
-	\item [T1: Requirements Analysis and Specification] \hfill \\
-	This is the first step of the project, which implies a deep analysis of the requirements
-	submitted by the customer and the drafting of a proper document. It is very important that
-	the requirement analysis and transformation is very clear and close to the customer necessities.
-	\item [T2: Design definition] \hfill \\
-	In this step, we choice the architecture of our whole system that will be the base of the
-	project development. As T1, this task requires the drafting of a proper document.
-	\item [T3: Test Plan] \hfill \\
-	In this step we have to think about the plan to test our system. We define what has to be tested,
-	when and with which other components. This step too requires a proper document.
-	\item [T4: Project Plan] \hfill \\
-	We define how much time we will have to spend on the project, the risks that we could face during
-	and after the whole development process and allocate our available time to perform the defined tasks.
-	\item [T5: Development of system] \hfill \\
-	The coding part of the project, we have to write the real application based on the previous documents.
-	It can be divided in the development of the various subsystems:
-	\begin{itemize}
-		\item Database
-		\item Backend system
-		\item Frontend system
-		\item Clients
-	\end{itemize}
-	\item [T6: Unit testing] \hfill \\
-	In this task we have to test each component independently from the others
-	\item [T7: Integration testing] \hfill \\
-	In this step we have to start integrating the various components each other in order to test the
-	different functionalities across the single entities and subsystems.
-	\item [T8: System testing] \hfill \\
-	This is the final test of the system. Global functionalities are tested and some performance tests
-	are performed to improve the system usability.
-\end{description}
-\subsection{Allocation}

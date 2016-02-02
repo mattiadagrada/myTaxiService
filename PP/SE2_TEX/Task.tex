@@ -1,0 +1,76 @@
+\section{Tasks}
+\subsection{Identification}
+We present a brief description of the tasks that our project requires to be executed.
+\begin{description}
+	\item [T1: Requirements Analysis and Specification] \hfill \\
+	This is the first step of the project, which implies a deep analysis of the requirements
+	submitted by the customer and the drafting of a proper document. It is very important that
+	the requirement analysis and transformation is very clear and close to the customer necessities.
+	\item [T2: Design definition] \hfill \\
+	In this step, we choice the architecture of our whole system that will be the base of the
+	project development. As T1, this task requires the drafting of a proper document.
+	\item [T3: Test Plan] \hfill \\
+	In this step we have to think about the plan to test our system. We define what has to be tested,
+	when and with which other components. This step too requires a proper document.
+	\item [T4: Project Plan] \hfill \\
+	We define how much time we will have to spend on the project, the risks that we could face during
+	and after the whole development process and allocate our available time to perform the defined tasks.
+	\item [T5: Development of system] \hfill \\
+	The coding part of the project, we have to write the real application based on the previous documents.
+	It can be divided in the development of the various subsystems:
+	\begin{itemize}
+		\item Database
+		\item Backend system
+		\item Frontend system
+		\item Clients
+	\end{itemize}
+	\item [T6: Unit testing] \hfill \\
+	In this task we have to test each component independently from the others
+	\item [T7: Integration testing] \hfill \\
+	In this step we have to start integrating the various components each other in order to test the
+	different functionalities across the single entities and subsystems.
+	\item [T8: System testing] \hfill \\
+	This is the final test of the system. Global functionalities are tested and some performance tests
+	are performed to improve the system usability.
+\end{description}
+There are some dependencies that must be respected and that limit the number of parallel tasks that can be executed.
+Generally, given the order of the tasks above, we can say that every task requires that all the previous tasks 
+must be consolidated, before to be considered. We will see particular cases in the allocation.
+\subsection{Allocation}
+As premise we have to consider that we are still students, so our knowledge, experience and time
+to dedicate at this project are quite limited.
+\\ \\
+\begin{tabular}{|p{2cm}|p{5cm}|p{5cm}|} \hline
+	Step & Cesare Bernardis & Mattia Dagrada \\ \hline
+	1 & T1 & T1 \\ \hline
+	2 & T2 & T2 \\ \hline
+	3 & T3 & T3 \\ \hline
+	4 & T4 & T4 \\ \hline
+	5 & T5, T6 & T5, T6 \\ \hline
+	6 & T7 & T7 \\ \hline
+	7 & T8 & T8 \\ \hline
+\end{tabular}
+\\ \\ \\
+The first thing to consider is that our experience is very limited, so in most of the cases two
+thinking heads are better than only one. This is why we decided to analyse the project and write the
+relative documents together, in order to share our individual knowledge and to be both aware of the
+project construction. The individualities come out during the development process, where the system can
+be split up in different parts to save time. The last tests require both the parts of the project, so
+we will be both involved. Let's analyse the steps a bit deeper:
+\begin{description}
+	\item[Steps 1,2,3,4] \hfill \\
+	These steps are preliminary analyses and documents, so, as said before, we think could be a good choice
+	to spend some time thinking together about the requirements, design, architecture and development process
+	of our project. Maybe the various parts of each document can be divided between us, but we are both focused
+	on the same document (and task).
+	\item[Step 5] \hfill \\
+	The development process can be divided in two branches, trying to keep the two parts with the same size.
+	So we can think that one of us writes the code of the Clients and the Frontend system, while the other writes
+	the code of the backend and the database interface. Subsequently every component of the team can "unit test"
+	the modules that he wrote. If one of the developers ends before the others can help with the development of
+	the other parts or maybe prepare the tests for the Unit testing of those parts.
+	\item[Steps 6,7] \hfill \\
+	The project ends with the integration and test of the complete functionalities of the system. To accomplish
+	these tasks the code must be complete, so all the team must have completed the implementation of each part.
+	Eventual errors may be found and corrected by the same person that wrote the wrong code.
+\end{description}
