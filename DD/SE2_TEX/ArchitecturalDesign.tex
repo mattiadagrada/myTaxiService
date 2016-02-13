@@ -71,9 +71,8 @@
 				\caption{Client components}
 			\end{center}
 		\end{figure}
-		In this subsystem we have placed all the components (mainly entities) that we do not want to let the client
-		interact directly. It is in direct communication with the frontend, responsible of the user
-		management, and the database. This is practically the core of our system.
+		In this subsystem we have the components in direct contact with the user.
+		It can be considered the user's "access interface" of our system.
 		\paragraph{Client} user interface represents the generic type of client that interact with the system. It will most likely be an abstract class extended by WebClient and MobileClient.
 		\paragraph{WebClient, MobileClient} user interfaces represent a generalization of the Client since they both share the same functionalities except for the fact that a Taxi Driver can only use the MobileClient to interact with the system. They main difference between these two user interfaces is the different type of communication protocols they use to interact with the system.
 	\subsubsection{Frontend}
@@ -83,6 +82,9 @@
 				\caption{Backend components}
 			\end{center}
 		\end{figure}
+		This subsystem represents the access to the real functionalities of our system. The application requires
+		a different type of user (that depends on the login) and, through the components of the Frontend, calls the
+		services of the backend.
 		\paragraph{User} component is the generic type of user that can be created by the system. It is the representation of the client from the server point of view. It will most likely be an abstract class extended by Guest, RegisteredPassenger and TaxiDriver. User component is stateful since it is strictly related to a Client but once the session is over its instance is destroyed.
 		\paragraph{Guest} component is the representation from the server point of view of one of the possible actors that interact with the system. Guests can only perform requests. Guest component is stateful, as for the User, since it is strictly related to a Client but once the session is over its instance is destroyed.
 		\paragraph{RegisteredPassenger} component is the representation from the server point of view of one of the possible actors that interact with the system. RegisteredPassengers can perform requests or reservations and their data is stored in the database. This is due to the fact that a client that is a registered passenger has filled a registration form and has to log in before being able to access all these features. RegisteredPassenger component is stateful, as for the User, since it is strictly related to a Client but once the session is over its instance is destroyed.
